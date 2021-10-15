@@ -10,6 +10,8 @@ TagManager:
   - doubleDrill
   - shingleDrill
   - bomItem
+  - Bullet
+  - Player2
   layers:
   - Default
   - TransparentFX
