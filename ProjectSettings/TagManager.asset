@@ -13,6 +13,8 @@ TagManager:
   - Bullet
   - Player2
   - P1ItemPanel
+  - P2ItemPanel
+  - StockItemManager
   layers:
   - Default
   - TransparentFX

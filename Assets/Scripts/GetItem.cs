@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GetItem : MonoBehaviour
 {
+    [SerializeField] HatenaBlock hatenaBlock;
+
     public enum ITEM
     {
         SHINGLEDRILL,
@@ -11,7 +13,8 @@ public class GetItem : MonoBehaviour
         BOM,
         SPEEDDOWN,
         SPEEDUP,
-        MUTEKi
+        MUTEKi,
+        HATENA,
     }
 
     public ITEM item;
@@ -21,6 +24,13 @@ public class GetItem : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             AudioManager.instance.PlaySE(2);
+
+            if (ITEM.HATENA == item)
+            {
+                hatenaBlock.SetItemBox();
+                StartCoroutine(ColDestroyObj());
+                return;
+            }
 
             if (ITEM.SHINGLEDRILL == item)
             {
@@ -59,5 +69,22 @@ public class GetItem : MonoBehaviour
 
             Destroy(gameObject);
         }
+    }
+
+    // 時間制限でオブジェクトを削除する
+    IEnumerator ColDestroyObj()
+    {
+        // コライダーを無効にする
+        BoxCollider2D col = this.GetComponent<BoxCollider2D>();
+        col.enabled = false;
+
+        // 色を透明にする
+        SpriteRenderer sr = this.GetComponent<SpriteRenderer>();
+        sr.color = new Color(0,0,0,0);
+
+        yield return new WaitForSeconds(2);
+
+        Destroy(gameObject);
+
     }
 }
