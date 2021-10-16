@@ -28,6 +28,15 @@ public class Player : MonoBehaviour
 
     float time;
 
+    // キー操作
+    public KeyCode downKey,
+                   rightKey,
+                   leftKey,
+                   digKey,
+                   bomKey,
+                   startKey,
+                   selectKey;
+
     void Start()
     {
         bom = GameObject.FindGameObjectWithTag("bom");
@@ -50,7 +59,7 @@ public class Player : MonoBehaviour
     {
         if (GameManager.instance.DrillCount > 0)
         {
-            if (Input.GetKey(KeyCode.DownArrow) && Input.GetKey(KeyCode.V))
+            if (Input.GetKey(downKey) && Input.GetKey(digKey))
             {
                 downDrill.SetActive(true);
                 rightDrill.SetActive(false);
@@ -68,7 +77,7 @@ public class Player : MonoBehaviour
                 }
 
             }
-            else if (Input.GetKey(KeyCode.RightArrow) && Input.GetKey(KeyCode.V))
+            else if (Input.GetKey(rightKey) && Input.GetKey(digKey))
             {
 
                 spriteRenderer.sprite = drillSprite2;
@@ -78,7 +87,7 @@ public class Player : MonoBehaviour
                 leftDrill.SetActive(false);
 
             }
-            else if (Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.V))
+            else if (Input.GetKey(leftKey) && Input.GetKey(digKey))
             {
                 spriteRenderer.sprite = drillSprite2;
                 leftDrill.SetActive(true);
@@ -103,7 +112,7 @@ public class Player : MonoBehaviour
             CollerGray();
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(bomKey))
         {
             if (GameManager.instance.BomCount > 0)
             {
@@ -171,6 +180,26 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+        
+        if (Input.GetKey(rightKey))
+        {
+            CharDirection();
+
+            transform.position += new Vector3(moveX * Time.deltaTime,0,0);
+
+            
+        }
+        else if(Input.GetKey(leftKey))
+        {
+            CharDirection();
+
+            transform.position -= new Vector3(moveX * Time.deltaTime, 0, 0);
+        }
+    }
+
+    // キャラの向きを変える
+    void CharDirection()
+    {
         float x = Input.GetAxisRaw("Horizontal");
         Vector3 scale = transform.localScale;
         if (x < 0)
@@ -185,20 +214,6 @@ public class Player : MonoBehaviour
         }
         // 代入し直す
         transform.localScale = scale;
-
-  
-
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            transform.position += new Vector3(moveX * Time.deltaTime,0,0);
-
-            
-        }
-        else if(Input.GetKey(KeyCode.LeftArrow))
-        {
-            transform.position -= new Vector3(moveX * Time.deltaTime, 0, 0);
-            
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
