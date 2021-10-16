@@ -250,6 +250,10 @@ MonoBehaviour:
   leftDrill: {fileID: 364322474}
   startPos: {fileID: 655529644}
   endPos: {fileID: 9017290}
+  downKey: 115
+  rightKey: 100
+  leftKey: 97
+  digKey: 32
 --- !u!212 &92316030
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -342,7 +346,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &95028348
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1182,7 +1186,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &790788743
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1262,7 +1266,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &836967140
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1481,7 +1485,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &975038471
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2462,6 +2466,10 @@ MonoBehaviour:
   leftDrill: {fileID: 932994902}
   startPos: {fileID: 1892116055}
   endPos: {fileID: 269693887}
+  downKey: 274
+  rightKey: 275
+  leftKey: 276
+  digKey: 118
 --- !u!58 &1417167097
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2630,7 +2638,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1466274489
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3051,7 +3059,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1664079922
 RectTransform:
   m_ObjectHideFlags: 0
