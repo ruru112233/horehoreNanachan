@@ -45,6 +45,7 @@ public class HatenaBlock : MonoBehaviour
             if (changeCount > spriteCount)
             {
                 selectItemFlag = false;
+                
                 stockItemPanel.ItemName = HtenaItemType.SPEEDUP.ToString();
 
                 return;
