@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class HatenaBlock : MonoBehaviour
 {
-    [SerializeField] StockItemManager stockItemManager;
+    StockItemManager stockItemManager;
+    StockItemPanel stockItemPanel;
 
     Image sprite;
 
@@ -23,11 +24,17 @@ public class HatenaBlock : MonoBehaviour
         PLAYER_2,
     } 
 
+    public enum HtenaItemType
+    {
+        SPEEDUP,
+    }
+
     public PlayerType playerType;
 
     private void Start()
     {
         stockItemManager = GameObject.FindWithTag("StockItemManager").GetComponent<StockItemManager>();
+        stockItemPanel = GameObject.FindWithTag("P1ItemPanel").GetComponent<StockItemPanel>();
     }
 
 
@@ -38,6 +45,8 @@ public class HatenaBlock : MonoBehaviour
             if (changeCount > spriteCount)
             {
                 selectItemFlag = false;
+                stockItemPanel.ItemName = HtenaItemType.SPEEDUP.ToString();
+
                 return;
             }
             SetTimeSprite(sprite);
@@ -52,14 +61,12 @@ public class HatenaBlock : MonoBehaviour
         // image‚ðŽæ“¾
         if (PlayerType.PLAYER_1 == playerType)
         {
-            Debug.Log("ƒAƒCƒeƒ€");
             sprite = GameObject.FindWithTag("P1ItemPanel").GetComponent<Image>();
         }
         else
         {
             sprite = GameObject.FindWithTag("P2ItemPanel").GetComponent<Image>();
         }
-
 
         changeCount = 0;
         chengeTime = 0.01f;
