@@ -33,6 +33,8 @@ public class Player : MonoBehaviour
 
     float time;
 
+    UseScript useScript;
+
     // キー操作
     public KeyCode downKey,
                    rightKey,
@@ -51,6 +53,8 @@ public class Player : MonoBehaviour
         bomCol = bom.GetComponent<BoxCollider2D>();
         colSize = bomCol.size;
         bomCol.enabled = false;
+
+        useScript = GameObject.FindWithTag("UseManager").GetComponent<UseScript>();
 
         if (PlayerType.Player1 == playerType)
         {
@@ -177,7 +181,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(itemUseKey) && stockItemPanel.ItemName != "")
         {
-            Debug.Log("アイテムを使った");
+            useScript.ItemUseSelect(stockItemPanel.ItemName, this.gameObject.name);
             stockItemPanel.ItemName = "";
             sprite.sprite = null;
         }

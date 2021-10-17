@@ -6,6 +6,14 @@ public class tsuritenjou : MonoBehaviour
 {
     float speedTime = 0;
 
+    private float tsuritenjouSpeed = 0.2f;
+
+    public float TsuritenjouSpeed
+    {
+        get { return tsuritenjouSpeed; }
+        set { tsuritenjouSpeed = value; }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,11 +27,13 @@ public class tsuritenjou : MonoBehaviour
 
         if (speedTime > 15.4f)
         {
-            GameManager.instance.TsuritenjouSpeed += 0.2f;
+            //GameManager.instance.TsuritenjouSpeed += 0.2f;
+            TsuritenjouSpeed += 0.2f;
             speedTime = 0;
         }
 
-        transform.position -= new Vector3(0, GameManager.instance.TsuritenjouSpeed * Time.deltaTime,0);
+        //transform.position -= new Vector3(0, GameManager.instance.TsuritenjouSpeed * Time.deltaTime,0);
+        transform.position -= new Vector3(0, TsuritenjouSpeed * Time.deltaTime, 0);
     }
 
 }

@@ -15,6 +15,7 @@ TagManager:
   - P1ItemPanel
   - P2ItemPanel
   - StockItemManager
+  - UseManager
   layers:
   - Default
   - TransparentFX
