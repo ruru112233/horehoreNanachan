@@ -82,7 +82,7 @@ public class GetItem : MonoBehaviour
         SpriteRenderer sr = this.GetComponent<SpriteRenderer>();
         sr.color = new Color(0,0,0,0);
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(3);
 
         Destroy(gameObject);
 

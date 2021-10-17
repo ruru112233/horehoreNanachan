@@ -242,6 +242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aef4cb8dc80067345980a254aa091f3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerType: 1
   idleSprite: {fileID: 21300000, guid: 52370a9b944293a49bb003e53c984cb7, type: 3}
   drillSprite: {fileID: 21300000, guid: 049f1099a2e990d429b4b150d1dcc464, type: 3}
   drillSprite2: {fileID: 21300000, guid: 1801f7e5ccef2f84796bb7a7e25e1101, type: 3}
@@ -256,6 +257,7 @@ MonoBehaviour:
   leftKey: 97
   digKey: 32
   bomKey: 0
+  itemUseKey: 0
   startKey: 0
   selectKey: 0
 --- !u!212 &92316030
@@ -3000,6 +3002,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aef4cb8dc80067345980a254aa091f3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerType: 0
   idleSprite: {fileID: 21300000, guid: 52370a9b944293a49bb003e53c984cb7, type: 3}
   drillSprite: {fileID: 21300000, guid: 049f1099a2e990d429b4b150d1dcc464, type: 3}
   drillSprite2: {fileID: 21300000, guid: 1801f7e5ccef2f84796bb7a7e25e1101, type: 3}
@@ -3014,6 +3017,7 @@ MonoBehaviour:
   leftKey: 276
   digKey: 118
   bomKey: 0
+  itemUseKey: 99
   startKey: 0
   selectKey: 0
 --- !u!58 &1417167097

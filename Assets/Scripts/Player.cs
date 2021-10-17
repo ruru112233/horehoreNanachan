@@ -2,16 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 //using Photon.Pun;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
 
     SpriteRenderer spriteRenderer;
 
+    public PlayerType playerType;
+
     public Sprite idleSprite;
     public Sprite drillSprite, drillSprite2;
 
     float moveX = 5.0f;
+
+    Image sprite;
 
     GameObject bom;
     BoxCollider2D bomCol;
@@ -34,6 +39,7 @@ public class Player : MonoBehaviour
                    leftKey,
                    digKey,
                    bomKey,
+                   itemUseKey,
                    startKey,
                    selectKey;
 
@@ -45,14 +51,22 @@ public class Player : MonoBehaviour
         bomCol = bom.GetComponent<BoxCollider2D>();
         colSize = bomCol.size;
         bomCol.enabled = false;
+
+        if (PlayerType.Player1 == playerType)
+        {
+            sprite = GameObject.FindWithTag("P1ItemPanel").GetComponent<Image>();
+        }
+        else
+        {
+            sprite = GameObject.FindWithTag("P2ItemPanel").GetComponent<Image>();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
         PlayerMove();
-
+        ItemUse();
     }
 
     void PlayerMove()
@@ -151,12 +165,24 @@ public class Player : MonoBehaviour
                     bomCol.enabled = false;
                     waitFlag = true;
                 }
-
             }
-
 
         }
     }
+
+    // ストックされたアイテムを使用する
+    void ItemUse()
+    {
+        StockItemPanel stockItemPanel = sprite.gameObject.GetComponent<StockItemPanel>();
+
+        if (Input.GetKeyDown(itemUseKey) && stockItemPanel.ItemName != "")
+        {
+            Debug.Log("アイテムを使った");
+            stockItemPanel.ItemName = "";
+            sprite.sprite = null;
+        }
+    }
+
 
     void CollerWhite()
     {
