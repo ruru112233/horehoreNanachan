@@ -5,6 +5,7 @@ using UnityEngine;
 public class UseScript : MonoBehaviour
 {
     public TsuritenjouSpeedUpRule tsuritenjouSpeedUpRule;
+    public StealItem stealItem;
 
     public void ItemUseSelect(string type, string tag)
     {
@@ -12,6 +13,9 @@ public class UseScript : MonoBehaviour
         {
             case "SPEEDUP":
                 tsuritenjouSpeedUpRule.ItemUse(tag);
+                break;
+            case "STEAL":
+                stealItem.ItemUse(tag);
                 break;
         }
     }

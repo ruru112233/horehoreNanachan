@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
 
     float moveX = 5.0f;
 
-    Image sprite;
+    Image sprite1, sprite2;
 
     GameObject bom;
     BoxCollider2D bomCol;
@@ -56,13 +56,15 @@ public class Player : MonoBehaviour
 
         useScript = GameObject.FindWithTag("UseManager").GetComponent<UseScript>();
 
+        sprite1 = GameObject.FindWithTag("P1ItemPanel").GetComponent<Image>();
+        sprite2 = GameObject.FindWithTag("P2ItemPanel").GetComponent<Image>();
         if (PlayerType.Player1 == playerType)
         {
-            sprite = GameObject.FindWithTag("P1ItemPanel").GetComponent<Image>();
+           // sprite = GameObject.FindWithTag("P1ItemPanel").GetComponent<Image>();
         }
         else
         {
-            sprite = GameObject.FindWithTag("P2ItemPanel").GetComponent<Image>();
+           // sprite = GameObject.FindWithTag("P2ItemPanel").GetComponent<Image>();
         }
     }
 
@@ -177,16 +179,27 @@ public class Player : MonoBehaviour
     // ストックされたアイテムを使用する
     void ItemUse()
     {
+        if (PlayerType.Player1 == playerType)
+        {
+            UseSelect(sprite1);
+        }
+        else
+        {
+            UseSelect(sprite2);
+        }
+    }
+
+    void UseSelect(Image sprite)
+    {
         StockItemPanel stockItemPanel = sprite.gameObject.GetComponent<StockItemPanel>();
 
         if (Input.GetKeyDown(itemUseKey) && stockItemPanel.ItemName != "")
         {
             useScript.ItemUseSelect(stockItemPanel.ItemName, this.gameObject.name);
-            stockItemPanel.ItemName = "";
-            sprite.sprite = null;
+            //stockItemPanel.ItemName = "";
+            //sprite.sprite = null;
         }
     }
-
 
     void CollerWhite()
     {

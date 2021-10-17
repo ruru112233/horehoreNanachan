@@ -27,6 +27,7 @@ public class HatenaBlock : MonoBehaviour
     public enum HtenaItemType
     {
         SPEEDUP,
+        STEAL,
     }
 
     public PlayerType playerType;
@@ -34,7 +35,20 @@ public class HatenaBlock : MonoBehaviour
     private void Start()
     {
         stockItemManager = GameObject.FindWithTag("StockItemManager").GetComponent<StockItemManager>();
-        stockItemPanel = GameObject.FindWithTag("P1ItemPanel").GetComponent<StockItemPanel>();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            stockItemPanel = GameObject.FindWithTag("P1ItemPanel").GetComponent<StockItemPanel>();
+            sprite = GameObject.FindWithTag("P1ItemPanel").GetComponent<Image>();
+        }
+        else if(collision.gameObject.CompareTag("Player2"))
+        {
+            stockItemPanel = GameObject.FindWithTag("P2ItemPanel").GetComponent<StockItemPanel>();
+            sprite = GameObject.FindWithTag("P2ItemPanel").GetComponent<Image>();
+        }
     }
 
 
@@ -46,7 +60,7 @@ public class HatenaBlock : MonoBehaviour
             {
                 selectItemFlag = false;
                 
-                stockItemPanel.ItemName = HtenaItemType.SPEEDUP.ToString();
+                stockItemPanel.ItemName = HtenaItemType.STEAL.ToString();
 
                 return;
             }
@@ -58,17 +72,6 @@ public class HatenaBlock : MonoBehaviour
     // アイテムボックスにアイテムが格納される
     public void SetItemBox()
     {
-        
-        // imageを取得
-        if (PlayerType.PLAYER_1 == playerType)
-        {
-            sprite = GameObject.FindWithTag("P1ItemPanel").GetComponent<Image>();
-        }
-        else
-        {
-            sprite = GameObject.FindWithTag("P2ItemPanel").GetComponent<Image>();
-        }
-
         changeCount = 0;
         chengeTime = 0.01f;
         selectItemFlag = true;
