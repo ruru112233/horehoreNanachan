@@ -129,7 +129,7 @@ public class Player : MonoBehaviour
 
         if (GameManager.instance.BomCount <= 0)
         {
-            CollerGray();
+            //CollerGray();
         }
 
         if (Input.GetKeyDown(bomKey))
@@ -138,7 +138,7 @@ public class Player : MonoBehaviour
             {
                 if (time == 0)
                 {
-                    CollerGray();
+                    //CollerGray();
                     AudioManager.instance.PlaySE(1);
                     GameManager.instance.BomCount--;
                     Instantiate(explosion, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
@@ -154,7 +154,7 @@ public class Player : MonoBehaviour
 
                 if (time >= 5.0f)
                 {
-                    CollerWhite();
+                    //CollerWhite();
                     time = 0;
                     waitFlag = false;
                 }
@@ -195,22 +195,28 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(itemUseKey) && stockItemPanel.ItemName != "")
         {
-            useScript.ItemUseSelect(stockItemPanel.ItemName, this.gameObject.name);
-            //stockItemPanel.ItemName = "";
-            //sprite.sprite = null;
+            useScript.ItemUseSelect(stockItemPanel.ItemName, this.gameObject.name, stockItemPanel.QuantityCange);
+
+            if (stockItemPanel.ItemName != "STEAL")
+            {
+                stockItemPanel.ItemName = "";
+                stockItemPanel.QuantityCange = "";
+                sprite.sprite = null;
+            }
+            
         }
     }
 
-    void CollerWhite()
-    {
-        GameManager.instance.bomText.color = GameManager.instance.textWhite;
-        GameManager.instance.bomMei.color = GameManager.instance.textWhite;
-    }
-    void CollerGray()
-    {
-        GameManager.instance.bomText.color = GameManager.instance.textGray;
-        GameManager.instance.bomMei.color = GameManager.instance.textGray;
-    }
+    //void CollerWhite()
+    //{
+    //    GameManager.instance.bomText.color = GameManager.instance.textWhite;
+    //    GameManager.instance.bomMei.color = GameManager.instance.textWhite;
+    //}
+    //void CollerGray()
+    //{
+    //    GameManager.instance.bomText.color = GameManager.instance.textGray;
+    //    GameManager.instance.bomMei.color = GameManager.instance.textGray;
+    //}
 
     void OffDrill()
     {
