@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using EnumsScript;
 
 public class HatenaBlock : MonoBehaviour
 {
@@ -18,17 +19,13 @@ public class HatenaBlock : MonoBehaviour
     int changeCount = 0;  // ‰æ‘œ‚ğƒ`ƒFƒ“ƒW‚µ‚½‰ñ”
     int spriteCount = 20; // ‰æ‘œ‚ğØ‚è‘Ö‚¦‚é‰ñ”
 
+
     public enum PlayerType
     {
         PLAYER_1,
         PLAYER_2,
-    } 
-
-    public enum HtenaItemType
-    {
-        SPEEDUP,
-        STEAL,
     }
+
 
     public PlayerType playerType;
 
@@ -43,6 +40,7 @@ public class HatenaBlock : MonoBehaviour
         {
             stockItemPanel = GameObject.FindWithTag("P1ItemPanel").GetComponent<StockItemPanel>();
             sprite = GameObject.FindWithTag("P1ItemPanel").GetComponent<Image>();
+
         }
         else if(collision.gameObject.CompareTag("Player2"))
         {
@@ -59,8 +57,8 @@ public class HatenaBlock : MonoBehaviour
             if (changeCount > spriteCount)
             {
                 selectItemFlag = false;
-                
-                stockItemPanel.ItemName = HtenaItemType.STEAL.ToString();
+                stockItemPanel.ItemName = Enums.HtenaItemType.DRILL.ToString();
+                stockItemPanel.QuantityCange = Enums.QuantityCangeType.DOWN.ToString();
 
                 return;
             }

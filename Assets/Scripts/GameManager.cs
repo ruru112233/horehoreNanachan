@@ -10,7 +10,9 @@ public class GameManager : MonoBehaviour
     private int drillCount = 0;
     private int bomCount = 0;
 
-    public Text drillText,bomText, bomMei, kyoritext;
+    //public Text drillText,bomText, bomMei, kyoritext;
+
+    public ItemCountManager itemCountManager;
 
     public GameObject gameOver;
 
@@ -110,14 +112,14 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        drillText.text = DrillCount.ToString();
-        bomText.text = BomCount.ToString();
+        //drillText.text = DrillCount.ToString();
+        //bomText.text = BomCount.ToString();
 
         if (player != null)
         {
             YJIKU = Mathf.Abs(player.transform.position.y + 0.22f);
 
-            kyoritext.text = YJIKU.ToString("F2") + "m";
+            //kyoritext.text = YJIKU.ToString("F2") + "m";
         }
 
         if (Input.GetKeyDown(KeyCode.Z))

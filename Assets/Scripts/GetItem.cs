@@ -1,23 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EnumsScript;
 
 public class GetItem : MonoBehaviour
 {
     [SerializeField] HatenaBlock hatenaBlock;
 
-    public enum ITEM
-    {
-        SHINGLEDRILL,
-        DOUBLEDRILL,
-        BOM,
-        SPEEDDOWN,
-        SPEEDUP,
-        MUTEKi,
-        HATENA,
-    }
 
-    public ITEM item;
+    public Enums.ITEM item;
 
     private TsuritenjouSpeedUpRule tsuritenjou;
 
@@ -32,28 +23,28 @@ public class GetItem : MonoBehaviour
         {
             AudioManager.instance.PlaySE(2);
 
-            if (ITEM.HATENA == item)
+            if (Enums.ITEM.HATENA == item)
             {
                 hatenaBlock.SetItemBox();
                 StartCoroutine(ColDestroyObj());
                 return;
             }
 
-            if (ITEM.SHINGLEDRILL == item)
+            if (Enums.ITEM.SHINGLEDRILL == item)
             {
                 GameManager.instance.DrillCount++;
             }
-            else if (ITEM.DOUBLEDRILL == item)
+            else if (Enums.ITEM.DOUBLEDRILL == item)
             {
                 GameManager.instance.DrillCount += 2;
             }
-            else if (ITEM.BOM == item)
+            else if (Enums.ITEM.BOM == item)
             {
                 GameManager.instance.BomCount++;
-                GameManager.instance.bomText.color = GameManager.instance.textWhite;
-                GameManager.instance.bomMei.color = GameManager.instance.textWhite;
+                //GameManager.instance.bomText.color = GameManager.instance.textWhite;
+                //GameManager.instance.bomMei.color = GameManager.instance.textWhite;
             }
-            else if (ITEM.SPEEDDOWN == item)
+            else if (Enums.ITEM.SPEEDDOWN == item)
             {
                 if (collision.gameObject.tag == "Player")
                 {
@@ -65,7 +56,7 @@ public class GetItem : MonoBehaviour
                 }
                 //GameManager.instance.TsuritenjouSpeed -= 0.1f;
             }
-            else if (ITEM.SPEEDUP == item)
+            else if (Enums.ITEM.SPEEDUP == item)
             {
                 if (collision.gameObject.tag == "Player")
                 {
@@ -77,7 +68,7 @@ public class GetItem : MonoBehaviour
                 }
                 GameManager.instance.TsuritenjouSpeed += 0.1f;
             }
-            else if (ITEM.MUTEKi == item)
+            else if (Enums.ITEM.MUTEKi == item)
             {
                 GameManager.instance.MutekiTime = 0;
                 GameManager.instance.MutekiFlag = true;

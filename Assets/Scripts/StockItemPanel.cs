@@ -6,11 +6,18 @@ public class StockItemPanel : MonoBehaviour
 {
  
     private string itemName = "";
+    private string quantityCange = "";
 
     public string ItemName
     {
         get { return itemName; }
         set { itemName = value; }
+    }
+
+    public string QuantityCange
+    {
+        get { return quantityCange; }
+        set { quantityCange = value; }
     }
 
 }
