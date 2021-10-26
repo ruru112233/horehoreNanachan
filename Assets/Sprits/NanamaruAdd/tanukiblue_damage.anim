@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TanukiDig
+  m_Name: tanukiblue_damage
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,9 +20,9 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: f82e17b3855f449e7896b50ddaefc0fc, type: 3}
+      value: {fileID: 21300000, guid: b1f3a834142124bfe87e0fb70c7e2381, type: 3}
     - time: 0.083333336
-      value: {fileID: 21300000, guid: 4aee1ae90b62941a0bb5cb30548384fe, type: 3}
+      value: {fileID: 21300000, guid: 55d7704a5a83342e0b7cfb7877d5a0d7, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -42,8 +42,8 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: f82e17b3855f449e7896b50ddaefc0fc, type: 3}
-    - {fileID: 21300000, guid: 4aee1ae90b62941a0bb5cb30548384fe, type: 3}
+    - {fileID: 21300000, guid: b1f3a834142124bfe87e0fb70c7e2381, type: 3}
+    - {fileID: 21300000, guid: 55d7704a5a83342e0b7cfb7877d5a0d7, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
