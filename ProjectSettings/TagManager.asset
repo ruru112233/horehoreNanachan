@@ -16,6 +16,8 @@ TagManager:
   - P2ItemPanel
   - StockItemManager
   - UseManager
+  - ChangeTarget
+  - ItemBlocks
   layers:
   - Default
   - TransparentFX

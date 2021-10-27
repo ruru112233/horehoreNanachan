@@ -7,6 +7,8 @@ public class GenerateManager : MonoBehaviour
     public GameObject BlockPrefab0, BlockPrefab1, BlockPrefab2, BlockPrefab3, 
                       BlockPrefab4, BlockPrefab5, BlockPrefab6, BlockPrefab7, BlockPrefab8, BlockPrefab9;
 
+    public GameObject groundBlock, itemBlock;
+
     float pos = -4;
 
     //スタートポジション
@@ -59,6 +61,12 @@ public class GenerateManager : MonoBehaviour
         
     }
 
+    void InstanceView(GameObject blockPrefab, Transform parent, float pos ,int j, int i)
+    {
+        GameObject obj = Instantiate(blockPrefab, new Vector3(j - startPos, i - pos, 0), Quaternion.identity);
+        obj.transform.SetParent(parent);
+    }
+
     void BlockGenerate()
     {
         for (int i = 0; i < blockImage.Length; i++)
@@ -67,28 +75,24 @@ public class GenerateManager : MonoBehaviour
             {
                 if (blockImage[i][j] == 0)
                 {
-                    Instantiate(BlockPrefab0, new Vector3(j - startPos, i - 4.0f, 0), Quaternion.identity);
+                    InstanceView(BlockPrefab0, groundBlock.transform, 4.0f, j, i);
                 }
                 else if(blockImage[i][j] == 1)
                 {
-
-                    Instantiate(BlockPrefab1, new Vector3(j - startPos, i - 4.0f, 0), Quaternion.identity);
+                    InstanceView(BlockPrefab1, groundBlock.transform, 4.0f, j, i);
                 }
                 else if (blockImage[i][j] == 2)
                 {
-
-                    Instantiate(BlockPrefab2, new Vector3(j - startPos, i - 4.0f, 0), Quaternion.identity);
+                    InstanceView(BlockPrefab2, itemBlock.transform, 4.0f, j, i);
                 }
                 else if (blockImage[i][j] == 3)
                 {
-
-                    Instantiate(BlockPrefab3, new Vector3(j - startPos, i - 4.0f, 0), Quaternion.identity);
+                    InstanceView(BlockPrefab3, itemBlock.transform, 4.0f, j, i);
                 }
                 else if(blockImage[i][j] == 4)
                 {
-                    Instantiate(BlockPrefab4, new Vector3(j - startPos, i - 4.0f, 0), Quaternion.identity);
+                    InstanceView(BlockPrefab4, groundBlock.transform, 4.0f, j, i);
                 }
-
             }
 
         }
@@ -175,7 +179,7 @@ public class GenerateManager : MonoBehaviour
 
         int[][] blockImage2 =
         {
-            new int [] { 0, a, b, c, d, e, f, g, h, 0, -1, -1, -1, -1, -1, 0, i, j, k, l, m, n, o, p}
+            new int [] { 0, a, b, c, d, e, f, g, h, 0, -1, -1, -1, -1, -1, 0, i, j, k, l, m, n, o, p, 0 }
         };
 
         BlockMove(blockImage2);
@@ -200,39 +204,42 @@ public class GenerateManager : MonoBehaviour
             {
                 if (blockImage[i][j] == 0)
                 {
-                    Instantiate(BlockPrefab0, new Vector3(j - startPos, pos, 0), Quaternion.identity);
+                    InstanceView(BlockPrefab0, groundBlock.transform, -pos, j, i);
                 }
                 else if(blockImage2[i][j] >= 1 && blockImage2[i][j] < block1MaxNo)
                 {
-                    Instantiate(BlockPrefab1, new Vector3(j - startPos, pos, 0), Quaternion.identity);
+                    InstanceView(BlockPrefab1, groundBlock.transform, -pos, j, i);
                 }
                 else if (blockImage2[i][j] >= block1MaxNo && blockImage2[i][j] < block3MaxNo)
                 {
-                    Instantiate(BlockPrefab2, new Vector3(j - startPos, pos, 0), Quaternion.identity);
+                    InstanceView(BlockPrefab2, itemBlock.transform, -pos, j, i);
                 }
                 else if (blockImage2[i][j] == block3MaxNo)
                 {
-                    Instantiate(BlockPrefab3, new Vector3(j - startPos, pos, 0), Quaternion.identity);
+                    InstanceView(BlockPrefab3, groundBlock.transform, -pos, j, i);
                 }
                 else if (blockImage2[i][j] == block5MaxNo)
                 {
-                    Instantiate(BlockPrefab5, new Vector3(j - startPos, pos, 0), Quaternion.identity);
+                    InstanceView(BlockPrefab5, itemBlock.transform, -pos, j, i);
+
                 }
                 else if (blockImage2[i][j] == block6MaxNo)
                 {
-                    Instantiate(BlockPrefab6, new Vector3(j - startPos, pos, 0), Quaternion.identity);
+                    InstanceView(BlockPrefab6, itemBlock.transform, -pos, j, i);
+
                 }
                 else if (blockImage2[i][j] == block7MaxNo)
                 {
-                    Instantiate(BlockPrefab7, new Vector3(j - startPos, pos, 0), Quaternion.identity);
+                    InstanceView(BlockPrefab7, itemBlock.transform, -pos, j, i);
+
                 }
                 else if (blockImage2[i][j] == block8MaxNo)
                 {
-                    Instantiate(BlockPrefab8, new Vector3(j - startPos, pos, 0), Quaternion.identity);
+                    InstanceView(BlockPrefab8, itemBlock.transform, -pos, j, i);
                 }
                 else if (blockImage2[i][j] == block9MaxNo)
                 {
-                    Instantiate(BlockPrefab9, new Vector3(j - startPos, pos, 0), Quaternion.identity);
+                    InstanceView(BlockPrefab9, itemBlock.transform, -pos, j, i);
                 }
 
             }

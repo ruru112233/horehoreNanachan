@@ -2,19 +2,111 @@
 using System.Collections.Generic;
 using UnityEngine;
 using EnumsScript;
+using SelectItem;
 
 public class GetItem : MonoBehaviour
 {
     [SerializeField] HatenaBlock hatenaBlock;
 
+    [SerializeField] Sprite groundSprite;
 
     public Enums.ITEM item;
+
+    private string changeTarget;
+
+    public string ChangeTarget
+    {
+        get { return changeTarget; }
+        set { changeTarget = value; }
+    }
+
+    float distance = 4;
+
+    Transform playerPos;
+
+    BlockChangeScript blockChangeScript = new BlockChangeScript();
 
     private TsuritenjouSpeedUpRule tsuritenjou;
 
     private void Start()
     {
         tsuritenjou = GameObject.FindWithTag("UseManager").GetComponent<TsuritenjouSpeedUpRule>();
+
+        if (this.transform.position.x <= 6.0f)
+        {
+            playerPos = GameObject.FindGameObjectWithTag("Player").transform;
+        }
+        else
+        {
+            playerPos = GameObject.FindGameObjectWithTag("Player2").transform;
+        }
+    }
+
+    private void Update()
+    {
+        float distance = DistanceValue(this.gameObject.transform.position, playerPos.position);
+
+        if (distance < this.distance && distance > 1)
+        {
+            //this.gameObject.GetComponent<SpriteRenderer>().color = Color.black;
+            ChangeTarget = Enums.ChangeTarget.TAGET.ToString();
+        }
+        else if (ChangeTarget == "TAGET")
+        {
+            //this.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+            ChangeTarget = Enums.ChangeTarget.NONE.ToString();
+        }
+
+        if (GameManager.instance.p1ChangeFlag)
+        {
+            if (ChangeTarget == "TAGET" && playerPos.gameObject.name == "Player2")
+            {
+                ChangeNomalBlock();
+            }
+        }
+
+        if (GameManager.instance.p2ChangeFlag)
+        {
+            if (changeTarget == "TAGET" && playerPos.gameObject.name == "Player")
+            {
+                ChangeNomalBlock();
+            }
+        }
+    }
+
+    // ノーマルブロックにチェンジする
+    void ChangeNomalBlock()
+    {
+
+        SpriteRenderer spriteRenderer = this.GetComponent<SpriteRenderer>();
+
+        spriteRenderer.sprite = groundSprite;
+        spriteRenderer.color = Color.white;
+
+        foreach (Transform child in this.gameObject.transform)
+        {
+            child.gameObject.SetActive(false);
+        }
+
+        BoxCollider2D boxCollider = this.GetComponent<BoxCollider2D>();
+        boxCollider.isTrigger = false;
+        boxCollider.offset = new Vector2(0, 0);
+        boxCollider.size = new Vector2(4.8f, 4.8f);
+
+        this.gameObject.AddComponent<Block>();
+
+        GetItem getItem = this.GetComponent<GetItem>();
+        getItem.enabled = false;
+    }
+
+    float DistanceValue(Vector3 pos1, Vector3 pos2)
+    {
+        float a = Mathf.Abs(pos1.y);
+        float b = Mathf.Abs(pos2.y);
+
+        float ans = a - b;
+
+        return ans;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
