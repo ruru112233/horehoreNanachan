@@ -53,12 +53,12 @@ public class ItemCountManager : MonoBehaviour
     void CounterView()
     {
         // ƒhƒŠƒ‹”‚Ì”½‰f
-        drillCountText1.text = DrillCount1.ToString();
-        drillCountText2.text = DrillCount2.ToString();
+        if (drillCountText1.text != null) drillCountText1.text = DrillCount1.ToString();
+        if (drillCountText2.text != null) drillCountText2.text = DrillCount2.ToString();
 
         // ƒ{ƒ€”‚Ì”½‰f
-        bomCountText1.text = BomCount1.ToString();
-        bomCountText2.text = BomCount2.ToString();
+        if (bomCountText1.text != null) bomCountText1.text = BomCount1.ToString();
+        if (bomCountText2.text != null) bomCountText2.text = BomCount2.ToString();
     }
 
 

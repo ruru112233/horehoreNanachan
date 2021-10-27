@@ -251,7 +251,6 @@ GameObject:
   - component: {fileID: 92316029}
   - component: {fileID: 92316028}
   - component: {fileID: 92316027}
-  - component: {fileID: 92316026}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player2
@@ -259,20 +258,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &92316026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 92316025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf7a6d26e7a9101498149409b1a2e858, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hatenaBlock: {fileID: 0}
-  item: 0
 --- !u!58 &92316027
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -893,6 +878,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 92316031}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &374119732
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 374119733}
+  m_Layer: 0
+  m_Name: GroundBlock
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &374119733
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374119732}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1597309321}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &398845099
 PrefabInstance:
@@ -2009,6 +2024,36 @@ AudioSource:
   m_CorrespondingSourceObject: {fileID: 7353782188464085198, guid: 3d6356e579203b24692cdf4a8f5868d9, type: 3}
   m_PrefabInstance: {fileID: 976917570}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &984232189
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 984232190}
+  m_Layer: 0
+  m_Name: ItemBlock
+  m_TagString: ItemBlocks
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &984232190
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 984232189}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1597309321}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1048260312
 GameObject:
   m_ObjectHideFlags: 0
@@ -2062,6 +2107,8 @@ MonoBehaviour:
   BlockPrefab7: {fileID: 5952249951612106594, guid: ebffcb319bc8713499c724887ae4af25, type: 3}
   BlockPrefab8: {fileID: 5696164467911951946, guid: a20f11726337d544f8117d8a464254db, type: 3}
   BlockPrefab9: {fileID: 7630854075229660392, guid: f61fee830e382a449b1d1e5df94546f2, type: 3}
+  groundBlock: {fileID: 374119732}
+  itemBlock: {fileID: 984232189}
 --- !u!1 &1101078257
 GameObject:
   m_ObjectHideFlags: 0
@@ -2336,6 +2383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hatenaBlock: {fileID: 1198739249}
+  groundSprite: {fileID: 0}
   item: 6
 --- !u!61 &1198739251
 BoxCollider2D:
@@ -3000,6 +3048,7 @@ GameObject:
   - component: {fileID: 1327259889}
   - component: {fileID: 1327259892}
   - component: {fileID: 1327259893}
+  - component: {fileID: 1327259894}
   m_Layer: 0
   m_Name: UseManager
   m_TagString: UseManager
@@ -3074,6 +3123,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9559391434188824da4cf45aebd58a1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1327259894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1327259888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1f4d325b04e49346b713f562e2f8034, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemBlocks: {fileID: 984232189}
+  changeFlag: 0
 --- !u!1 &1379562367
 GameObject:
   m_ObjectHideFlags: 0
@@ -3180,7 +3243,6 @@ GameObject:
   - component: {fileID: 1417167096}
   - component: {fileID: 1417167098}
   - component: {fileID: 1417167097}
-  - component: {fileID: 1417167099}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -3328,20 +3390,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1417167099
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1417167093}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf7a6d26e7a9101498149409b1a2e858, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hatenaBlock: {fileID: 0}
-  item: 0
 --- !u!1 &1420260548
 GameObject:
   m_ObjectHideFlags: 0
@@ -4009,6 +4057,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce1a90c7bf72049dab8ca4a87a9f865e, type: 3}
+--- !u!1 &1597309320
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1597309321}
+  m_Layer: 0
+  m_Name: BlockPrefab
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1597309321
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1597309320}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.439547, y: -3.1853077, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 374119733}
+  - {fileID: 984232190}
+  m_Father: {fileID: 0}
+  m_RootOrder: 24
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1598819685
 GameObject:
   m_ObjectHideFlags: 0
@@ -5570,6 +5650,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hatenaBlock: {fileID: 6921531452428489004}
+  groundSprite: {fileID: 0}
   item: 6
 --- !u!212 &6921531452428488980
 SpriteRenderer:

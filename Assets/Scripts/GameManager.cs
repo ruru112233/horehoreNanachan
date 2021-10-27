@@ -37,6 +37,9 @@ public class GameManager : MonoBehaviour
 
     GameObject player;
 
+    public bool p1ChangeFlag = false
+              , p2ChangeFlag = false;
+
     public Color textGray = new Color(0.5f, 0.5f, 0.5f, 1);
     public Color textWhite = new Color(1, 1, 1, 1);
 
