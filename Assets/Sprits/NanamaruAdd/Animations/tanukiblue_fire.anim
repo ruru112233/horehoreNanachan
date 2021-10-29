@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: tanukireddrill
+  m_Name: tanukiblue_fire
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,9 +20,9 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: d5f03817dde1d45b19d325bd5ff950e4, type: 3}
+      value: {fileID: 21300000, guid: 0281f7f4f25c2470aaec4c37261bd92d, type: 3}
     - time: 0.083333336
-      value: {fileID: 21300000, guid: 9dc65d899d6d342eba660decfd034492, type: 3}
+      value: {fileID: 21300000, guid: 6a528272e28d942beb4fff7e8e9cb7eb, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -42,8 +42,8 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: d5f03817dde1d45b19d325bd5ff950e4, type: 3}
-    - {fileID: 21300000, guid: 9dc65d899d6d342eba660decfd034492, type: 3}
+    - {fileID: 21300000, guid: 0281f7f4f25c2470aaec4c37261bd92d, type: 3}
+    - {fileID: 21300000, guid: 6a528272e28d942beb4fff7e8e9cb7eb, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
