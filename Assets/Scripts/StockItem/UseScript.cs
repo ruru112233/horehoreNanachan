@@ -10,6 +10,7 @@ public class UseScript : MonoBehaviour
     public DrillBomUpDown drillBomUpDown;
 
     BlockChangeScript blockChangeScript = new BlockChangeScript();
+    StopScript stopScript = new StopScript();
 
     public void ItemUseSelect(string type, string tag, string quantityCangeType)
     {
@@ -31,7 +32,7 @@ public class UseScript : MonoBehaviour
                 blockChangeScript.ItemUse(tag);
                 break;
             case "NOPLAY":
-                
+                stopScript.ItemUse(tag);
                 break;
 
         }
