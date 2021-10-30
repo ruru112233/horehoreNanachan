@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 //using Photon.Pun;
 using UnityEngine.UI;
+using SelectItem;
 
 public class Player : MonoBehaviour
 {
@@ -71,11 +72,29 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PlayerMove();
-        ItemUse();
+
+        if (!GameManager.instance.player1Stop && this.gameObject.name == "Player")
+        {
+            PlayerDig();
+            ItemUse();
+        }
+        else if (GameManager.instance.player1Stop && this.gameObject.name == "Player")
+        {
+            OffDrill();
+        }
+
+        if (!GameManager.instance.player2Stop && this.gameObject.name == "Player2")
+        {
+            PlayerDig();
+            ItemUse();
+        }
+        else if(GameManager.instance.player2Stop && this.gameObject.name == "Player2")
+        {
+            OffDrill();
+        }
     }
 
-    void PlayerMove()
+    void PlayerDig()
     {
         if (GameManager.instance.DrillCount > 0)
         {
@@ -229,16 +248,31 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        
+        // Player1の移動処理
+        if (!GameManager.instance.player1Stop && this.gameObject.name == "Player")
+        {
+            PlayerMove();
+        }
+
+        // Player2の移動処理
+        if (!GameManager.instance.player2Stop && this.gameObject.name == "Player2")
+        {
+            PlayerMove();
+        }
+
+    }
+
+    void PlayerMove()
+    {
         if (Input.GetKey(rightKey))
         {
             CharDirection();
 
-            transform.position += new Vector3(moveX * Time.deltaTime,0,0);
+            transform.position += new Vector3(moveX * Time.deltaTime, 0, 0);
 
-            
+
         }
-        else if(Input.GetKey(leftKey))
+        else if (Input.GetKey(leftKey))
         {
             CharDirection();
 

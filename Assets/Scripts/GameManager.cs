@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using SelectItem;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class GameManager : MonoBehaviour
     private int bomCount = 0;
 
     //public Text drillText,bomText, bomMei, kyoritext;
+
+    public bool player1Stop = false
+              , player2Stop = false;
 
     public ItemCountManager itemCountManager;
 
@@ -21,6 +25,8 @@ public class GameManager : MonoBehaviour
     public GameObject ora;
 
     public GameObject horeru, drill, doubleDrill, bom, speedUp, speedDoun, star, ice;
+
+    public StopScript stopScript;
 
     int setumeiNo = 1;
 

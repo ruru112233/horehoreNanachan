@@ -3049,6 +3049,7 @@ GameObject:
   - component: {fileID: 1327259892}
   - component: {fileID: 1327259893}
   - component: {fileID: 1327259894}
+  - component: {fileID: 1327259895}
   m_Layer: 0
   m_Name: UseManager
   m_TagString: UseManager
@@ -3135,8 +3136,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1f4d325b04e49346b713f562e2f8034, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemBlocks: {fileID: 984232189}
-  changeFlag: 0
+--- !u!114 &1327259895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1327259888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62f8345bf74cdc840b29862a19ca5a24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1379562367
 GameObject:
   m_ObjectHideFlags: 0
@@ -5342,6 +5353,9 @@ MonoBehaviour:
   speedDoun: {fileID: 1513534911}
   star: {fileID: 1762788688}
   ice: {fileID: 43875883}
+  stopScript: {fileID: 1327259895}
+  p1ChangeFlag: 0
+  p2ChangeFlag: 0
   textGray: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   textWhite: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &2035391143
