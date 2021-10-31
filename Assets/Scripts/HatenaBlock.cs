@@ -57,8 +57,10 @@ public class HatenaBlock : MonoBehaviour
             if (changeCount > spriteCount)
             {
                 selectItemFlag = false;
-                stockItemPanel.ItemName = Enums.HtenaItemType.NOPLAY.ToString();
-                //stockItemPanel.QuantityCange = Enums.QuantityCangeType.DOWN.ToString();
+                string itemName = sprite.sprite.name;
+                Debug.Log(itemName);
+                stockItemPanel.ItemName = ItemTypeString(itemName);
+                stockItemPanel.QuantityCange = QuantityCange(itemName);
 
                 return;
             }
@@ -96,5 +98,57 @@ public class HatenaBlock : MonoBehaviour
         int num = CalcScript.RandInt(0, 5);
 
         return stockItemManager.selectItemSpriteList[num];
+    }
+
+    // 最終的にセットされるアイテムの文字列を返す
+    string ItemTypeString(string itemName)
+    {
+        string itemType = null;
+
+        switch (itemType)
+        {
+            case "items-speed":
+                itemType = Enums.HtenaItemType.SPEEDUP.ToString();
+                break;
+            case "items-ubau":
+                itemType = Enums.HtenaItemType.STEAL.ToString();
+                break;
+            case "items-drillhueru":
+            case "items-drillheru":
+                itemType = Enums.HtenaItemType.DRILL.ToString();
+                break;
+            case "items-bakudanhueru":
+            case "items-bakudanheru":
+                itemType = Enums.HtenaItemType.BOM.ToString();
+                break;
+            case "items-kaeru":
+                itemType = Enums.HtenaItemType.BLOCKCHANGE.ToString();
+                break;
+            case "items-sousa":
+                itemType = Enums.HtenaItemType.NOPLAY.ToString();
+                break;
+        }
+
+        return itemType;
+    }
+
+    // ドリルかボムの場合、２倍にするか半分にするかを返す
+    string QuantityCange(string itemName)
+    {
+        string quantityCange = "";
+
+        switch (itemName)
+        {
+            case "items-drillhueru":
+            case "items-bakudanhueru":
+                Enums.QuantityCangeType.UP.ToString();
+                break;
+            case "items-drillheru":
+            case "items-bakudanheru":
+                Enums.QuantityCangeType.DOWN.ToString();
+                break;
+        }
+
+        return quantityCange;
     }
 }
