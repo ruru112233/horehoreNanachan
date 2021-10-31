@@ -20,4 +20,10 @@ public class StockItemPanel : MonoBehaviour
         set { quantityCange = value; }
     }
 
+    private void Update()
+    {
+        Debug.Log("ItemName:" + ItemName);
+        Debug.Log("QuantityCange:" + QuantityCange);
+    }
+
 }
