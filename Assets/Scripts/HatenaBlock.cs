@@ -105,7 +105,7 @@ public class HatenaBlock : MonoBehaviour
     {
         string itemType = null;
 
-        switch (itemType)
+        switch (itemName)
         {
             case "items-speed":
                 itemType = Enums.HtenaItemType.SPEEDUP.ToString();
@@ -141,13 +141,16 @@ public class HatenaBlock : MonoBehaviour
         {
             case "items-drillhueru":
             case "items-bakudanhueru":
-                Enums.QuantityCangeType.UP.ToString();
+                quantityCange = Enums.QuantityCangeType.UP.ToString();
                 break;
             case "items-drillheru":
             case "items-bakudanheru":
-                Enums.QuantityCangeType.DOWN.ToString();
+                quantityCange = Enums.QuantityCangeType.DOWN.ToString();
                 break;
         }
+
+        Debug.Log("itemName11111:" + itemName);
+        Debug.Log("quantityCange11111:" + quantityCange);
 
         return quantityCange;
     }
