@@ -3851,11 +3851,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectItemSpriteList:
-  - {fileID: 21300000, guid: 5345b844dd7ea924590c87e432232ec9, type: 3}
-  - {fileID: 21300000, guid: 3cf700521e2def9409c21af18936ee43, type: 3}
-  - {fileID: 21300000, guid: 049f1099a2e990d429b4b150d1dcc464, type: 3}
-  - {fileID: 21300000, guid: 0e4ccc5278542c44883cfc03cfeba2fa, type: 3}
-  - {fileID: 21300000, guid: ba88e19297bb7894ca742615d86a7cf6, type: 3}
+  - {fileID: 21300000, guid: 0dedcbf8ce9ae4e19aadf6764d0463d4, type: 3}
+  - {fileID: 21300000, guid: 61da21b30d3684d9096ddaa6d68c0579, type: 3}
+  - {fileID: 21300000, guid: 0110979aa0dfe4f09835494453c791e5, type: 3}
+  - {fileID: 21300000, guid: ae960d0854b5b4688afd389a7b1f0919, type: 3}
+  - {fileID: 21300000, guid: 591b702058b3a4ccbb612b6941778dc9, type: 3}
+  - {fileID: 21300000, guid: 0e7f33e7b50f6495d8a38c0aebf174b2, type: 3}
+  - {fileID: 21300000, guid: b17b3fef159944d8cb6c3176beab61b5, type: 3}
+  - {fileID: 21300000, guid: 4a3034952205b47ca9fd86f5d99f5c53, type: 3}
 --- !u!4 &1537847851
 Transform:
   m_ObjectHideFlags: 0
@@ -5340,6 +5343,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f05aee4ef81366142af50303bef1e417, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player1Stop: 0
+  player2Stop: 0
   itemCountManager: {fileID: 2135801052}
   gameOver: {fileID: 1885154740}
   setsumeiPanel: {fileID: 398845101}
