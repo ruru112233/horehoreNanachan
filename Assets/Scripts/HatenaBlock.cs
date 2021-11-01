@@ -107,24 +107,24 @@ public class HatenaBlock : MonoBehaviour
 
         switch (itemName)
         {
-            case "items-speed":
+            case "items-speedup":
                 itemType = Enums.HtenaItemType.SPEEDUP.ToString();
                 break;
             case "items-ubau":
                 itemType = Enums.HtenaItemType.STEAL.ToString();
                 break;
-            case "items-drillhueru":
-            case "items-drillheru":
+            case "items-drill_up":
+            case "items-drill_down":
                 itemType = Enums.HtenaItemType.DRILL.ToString();
                 break;
-            case "items-bakudanhueru":
-            case "items-bakudanheru":
+            case "items-bomb_up":
+            case "items-bomb_down":
                 itemType = Enums.HtenaItemType.BOM.ToString();
                 break;
-            case "items-kaeru":
+            case "items-change":
                 itemType = Enums.HtenaItemType.BLOCKCHANGE.ToString();
                 break;
-            case "items-sousa":
+            case "items-sousa_huka":
                 itemType = Enums.HtenaItemType.NOPLAY.ToString();
                 break;
         }
@@ -139,12 +139,12 @@ public class HatenaBlock : MonoBehaviour
 
         switch (itemName)
         {
-            case "items-drillhueru":
-            case "items-bakudanhueru":
+            case "items-drill_up":
+            case "items-bomb_up":
                 quantityCange = Enums.QuantityCangeType.UP.ToString();
                 break;
-            case "items-drillheru":
-            case "items-bakudanheru":
+            case "items-drill_down":
+            case "items-bomb_down":
                 quantityCange = Enums.QuantityCangeType.DOWN.ToString();
                 break;
         }
