@@ -3852,12 +3852,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectItemSpriteList:
   - {fileID: 21300000, guid: 0dedcbf8ce9ae4e19aadf6764d0463d4, type: 3}
-  - {fileID: 21300000, guid: 61da21b30d3684d9096ddaa6d68c0579, type: 3}
-  - {fileID: 21300000, guid: 0110979aa0dfe4f09835494453c791e5, type: 3}
-  - {fileID: 21300000, guid: ae960d0854b5b4688afd389a7b1f0919, type: 3}
+  - {fileID: 21300000, guid: f7db093cf5da6449ca7b9fc4c76078bf, type: 3}
+  - {fileID: 21300000, guid: bedd25372dec946db845b7a3ece04cba, type: 3}
+  - {fileID: 21300000, guid: 949f4f2ebb9954b2ebf91408fa685e79, type: 3}
   - {fileID: 21300000, guid: 591b702058b3a4ccbb612b6941778dc9, type: 3}
+  - {fileID: 21300000, guid: 0110979aa0dfe4f09835494453c791e5, type: 3}
   - {fileID: 21300000, guid: 0e7f33e7b50f6495d8a38c0aebf174b2, type: 3}
-  - {fileID: 21300000, guid: b17b3fef159944d8cb6c3176beab61b5, type: 3}
   - {fileID: 21300000, guid: 4a3034952205b47ca9fd86f5d99f5c53, type: 3}
 --- !u!4 &1537847851
 Transform:
