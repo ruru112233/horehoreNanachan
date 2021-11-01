@@ -10,6 +10,8 @@ public class Block : MonoBehaviour
 
     int seCount = 0;
 
+    string playerName = "";
+
     public float HoleTime
     {
         get { return holeTime; }
@@ -19,7 +21,14 @@ public class Block : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (this.transform.position.x <= 6.0f)
+        {
+            playerName = GameObject.FindGameObjectWithTag("Player").gameObject.name;
+        }
+        else
+        {
+            playerName = GameObject.FindGameObjectWithTag("Player2").gameObject.name;
+        }
     }
 
     // Update is called once per frame
@@ -58,23 +67,61 @@ public class Block : MonoBehaviour
 
         if (collision.gameObject.tag == "drill")
         {
-            HoleTime += Time.deltaTime;
-
-            drillFlag = true;
-
-            if (HoleTime > 0.8f && !GameManager.instance.MutekiFlag)
+            if (collision.gameObject.name == "Player")
             {
-                GameManager.instance.DrillCount--;
-                Destroy(gameObject);
+                DrillCount(this.playerName);
             }
-            else if (HoleTime > 0.4f && GameManager.instance.MutekiFlag)
+            else
             {
-                GameManager.instance.DrillCount--;
-                Destroy(gameObject);
+                DrillCount(this.playerName);
             }
 
         }
 
+
+    }
+
+    void DrillCount(string playerName)
+    {
+        HoleTime += Time.deltaTime;
+
+        drillFlag = true;
+
+        if (playerName == "Player")
+        {
+            if (HoleTime > 0.8f && !GameManager.instance.MutekiFlag)
+            {
+                Player1DrillCount();
+            }
+            else if (HoleTime > 0.4f && GameManager.instance.MutekiFlag)
+            {
+                Player1DrillCount();
+            }
+        }
+        else
+        {
+            if (HoleTime > 0.8f && !GameManager.instance.MutekiFlag)
+            {
+                Player2DrillCount();
+            }
+            else if (HoleTime > 0.4f && GameManager.instance.MutekiFlag)
+            {
+                Player2DrillCount();
+            }
+        }
+
+    }
+
+    void Player1DrillCount()
+    {
+        GameManager.instance.itemCountManager.DrillCount1--;
+        Destroy(gameObject);
+    }
+
+    void Player2DrillCount()
+    {
+        GameManager.instance.itemCountManager.DrillCount2--;
+        Destroy(gameObject);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
