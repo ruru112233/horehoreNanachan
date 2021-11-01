@@ -37,6 +37,7 @@ public class Player : MonoBehaviour
     UseScript useScript;
 
     int drillCount = 0;
+    int bomCount = 0;
 
     // キー操作
     public KeyCode downKey,
