@@ -321,7 +321,7 @@ MonoBehaviour:
   rightKey: 100
   leftKey: 97
   digKey: 32
-  bomKey: 0
+  bomKey: 106
   itemUseKey: 107
   startKey: 0
   selectKey: 0
@@ -3360,7 +3360,7 @@ MonoBehaviour:
   rightKey: 275
   leftKey: 276
   digKey: 118
-  bomKey: 0
+  bomKey: 120
   itemUseKey: 99
   startKey: 0
   selectKey: 0

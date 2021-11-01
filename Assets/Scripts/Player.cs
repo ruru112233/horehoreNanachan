@@ -36,6 +36,8 @@ public class Player : MonoBehaviour
 
     UseScript useScript;
 
+    int drillCount = 0;
+
     // キー操作
     public KeyCode downKey,
                    rightKey,
@@ -59,19 +61,21 @@ public class Player : MonoBehaviour
 
         sprite1 = GameObject.FindWithTag("P1ItemPanel").GetComponent<Image>();
         sprite2 = GameObject.FindWithTag("P2ItemPanel").GetComponent<Image>();
-        if (PlayerType.Player1 == playerType)
-        {
-           // sprite = GameObject.FindWithTag("P1ItemPanel").GetComponent<Image>();
-        }
-        else
-        {
-           // sprite = GameObject.FindWithTag("P2ItemPanel").GetComponent<Image>();
-        }
+
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (this.gameObject.name == "Player")
+        {
+            drillCount = GameManager.instance.itemCountManager.DrillCount1;
+        }
+        else
+        {
+            drillCount = GameManager.instance.itemCountManager.DrillCount2;
+        }
 
         if (!GameManager.instance.player1Stop && this.gameObject.name == "Player")
         {
@@ -96,7 +100,7 @@ public class Player : MonoBehaviour
 
     void PlayerDig()
     {
-        if (GameManager.instance.DrillCount > 0)
+        if (drillCount > 0)
         {
             if (Input.GetKey(downKey) && Input.GetKey(digKey))
             {

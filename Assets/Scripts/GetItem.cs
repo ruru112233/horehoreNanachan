@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using EnumsScript;
-using SelectItem;
 
 public class GetItem : MonoBehaviour
 {
@@ -23,8 +22,6 @@ public class GetItem : MonoBehaviour
     float distance = 4;
 
     Transform playerPos;
-
-    BlockChangeScript blockChangeScript = new BlockChangeScript();
 
     private TsuritenjouSpeedUpRule tsuritenjou;
 
@@ -124,21 +121,41 @@ public class GetItem : MonoBehaviour
 
             if (Enums.ITEM.SHINGLEDRILL == item)
             {
-                GameManager.instance.DrillCount++;
+                if (collision.gameObject.CompareTag("Player"))
+                {
+                    GameManager.instance.itemCountManager.DrillCount1++;
+                }
+                else
+                {
+                    GameManager.instance.itemCountManager.DrillCount2++;
+                }
             }
             else if (Enums.ITEM.DOUBLEDRILL == item)
             {
-                GameManager.instance.DrillCount += 2;
+                if (collision.gameObject.CompareTag("Player"))
+                {
+                    GameManager.instance.itemCountManager.DrillCount1 += 2;
+                }
+                else
+                {
+                    GameManager.instance.itemCountManager.DrillCount2 += 2;
+                }
+                
             }
             else if (Enums.ITEM.BOM == item)
             {
-                GameManager.instance.BomCount++;
-                //GameManager.instance.bomText.color = GameManager.instance.textWhite;
-                //GameManager.instance.bomMei.color = GameManager.instance.textWhite;
+                if (collision.gameObject.CompareTag("Player"))
+                {
+                    GameManager.instance.itemCountManager.BomCount1++;
+                }
+                else
+                {
+                    GameManager.instance.itemCountManager.BomCount2++;
+                }
             }
             else if (Enums.ITEM.SPEEDDOWN == item)
             {
-                if (collision.gameObject.tag == "Player")
+                if (collision.gameObject.CompareTag("Player"))
                 {
                     tsuritenjou.tsuritenjou1.TsuritenjouSpeed -= 0.1f;
                 }
@@ -146,11 +163,10 @@ public class GetItem : MonoBehaviour
                 {
                     tsuritenjou.tsuritenjou2.TsuritenjouSpeed -= 0.1f;
                 }
-                //GameManager.instance.TsuritenjouSpeed -= 0.1f;
             }
             else if (Enums.ITEM.SPEEDUP == item)
             {
-                if (collision.gameObject.tag == "Player")
+                if (collision.gameObject.CompareTag("Player"))
                 {
                     tsuritenjou.tsuritenjou1.TsuritenjouSpeed += 0.1f;
                 }
