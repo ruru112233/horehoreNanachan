@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
     public GameObject startPos, endPos;
 
     float time;
+    float bomWaitTime;
 
     UseScript useScript;
 
@@ -72,10 +73,12 @@ public class Player : MonoBehaviour
         if (this.gameObject.name == "Player")
         {
             drillCount = GameManager.instance.itemCountManager.DrillCount1;
+            bomCount = GameManager.instance.itemCountManager.BomCount1;
         }
         else
         {
             drillCount = GameManager.instance.itemCountManager.DrillCount2;
+            bomCount = GameManager.instance.itemCountManager.BomCount2;
         }
 
         if (!GameManager.instance.player1Stop && this.gameObject.name == "Player")
@@ -151,20 +154,20 @@ public class Player : MonoBehaviour
 
         bom.transform.position = transform.position;
 
-        if (GameManager.instance.BomCount <= 0)
+        if (bomCount <= 0)
         {
-            //CollerGray();
+            CollerGray();
         }
 
         if (Input.GetKeyDown(bomKey))
         {
-            if (GameManager.instance.BomCount > 0)
+            if (bomCount > 0)
             {
-                if (time == 0)
+                if (bomWaitTime == 0)
                 {
-                    //CollerGray();
+                    CollerGray();
                     AudioManager.instance.PlaySE(1);
-                    GameManager.instance.BomCount--;
+                    GameManager.instance.itemCountManager.BomCount1--;
                     Instantiate(explosion, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
                     bomCol.enabled = true;
                 }
@@ -174,12 +177,12 @@ public class Player : MonoBehaviour
         {
             if (waitFlag)
             {
-                time += Time.deltaTime;
+                bomWaitTime += Time.deltaTime;
 
-                if (time >= 5.0f)
+                if (bomWaitTime >= 5.0f)
                 {
-                    //CollerWhite();
-                    time = 0;
+                    CollerWhite();
+                    bomWaitTime = 0;
                     waitFlag = false;
                 }
             }
@@ -194,6 +197,7 @@ public class Player : MonoBehaviour
                     bomCol.size = colSize;
                     bomCol.enabled = false;
                     waitFlag = true;
+                    time = 0;
                 }
             }
 
@@ -231,16 +235,32 @@ public class Player : MonoBehaviour
         }
     }
 
-    //void CollerWhite()
-    //{
-    //    GameManager.instance.bomText.color = GameManager.instance.textWhite;
-    //    GameManager.instance.bomMei.color = GameManager.instance.textWhite;
-    //}
-    //void CollerGray()
-    //{
-    //    GameManager.instance.bomText.color = GameManager.instance.textGray;
-    //    GameManager.instance.bomMei.color = GameManager.instance.textGray;
-    //}
+    void CollerWhite()
+    {
+        if (this.gameObject.name == "Player")
+        {
+            GameManager.instance.itemCountManager.bomCountText1.color = GameManager.instance.textWhite;
+            GameManager.instance.itemCountManager.bomMeiText1.color = GameManager.instance.textWhite;
+        }
+        else
+        {
+            GameManager.instance.itemCountManager.bomCountText2.color = GameManager.instance.textWhite;
+            GameManager.instance.itemCountManager.bomMeiText2.color = GameManager.instance.textWhite;
+        }
+    }
+    void CollerGray()
+    {
+        if (this.gameObject.name == "Player")
+        {
+            GameManager.instance.itemCountManager.bomCountText1.color = GameManager.instance.textGray;
+            GameManager.instance.itemCountManager.bomMeiText1.color = GameManager.instance.textGray;
+        }
+        else
+        {
+            GameManager.instance.itemCountManager.bomCountText2.color = GameManager.instance.textGray;
+            GameManager.instance.itemCountManager.bomMeiText2.color = GameManager.instance.textGray;
+        }
+    }
 
     void OffDrill()
     {

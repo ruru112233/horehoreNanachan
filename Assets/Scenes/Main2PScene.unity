@@ -6739,6 +6739,8 @@ MonoBehaviour:
   drillCountText2: {fileID: 1212419351}
   bomCountText1: {fileID: 509607982}
   bomCountText2: {fileID: 1846589261}
+  bomMeiText1: {fileID: 1664079923}
+  bomMeiText2: {fileID: 1754731296}
 --- !u!4 &2135801053
 Transform:
   m_ObjectHideFlags: 0
