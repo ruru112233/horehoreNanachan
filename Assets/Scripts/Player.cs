@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
 
     Image sprite1, sprite2;
 
-    GameObject bom;
+    [SerializeField] GameObject bom;
     BoxCollider2D bomCol;
 
     public GameObject explosion;
@@ -52,7 +52,6 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        bom = GameObject.FindGameObjectWithTag("bom");
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         bomCol = bom.GetComponent<BoxCollider2D>();
@@ -167,7 +166,14 @@ public class Player : MonoBehaviour
                 {
                     CollerGray();
                     AudioManager.instance.PlaySE(1);
-                    GameManager.instance.itemCountManager.BomCount1--;
+                    if (this.gameObject.name == "Player")
+                    {
+                        GameManager.instance.itemCountManager.BomCount1--;
+                    }
+                    else
+                    {
+                        GameManager.instance.itemCountManager.BomCount2--;
+                    }
                     Instantiate(explosion, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
                     bomCol.enabled = true;
                 }
@@ -179,7 +185,7 @@ public class Player : MonoBehaviour
             {
                 bomWaitTime += Time.deltaTime;
 
-                if (bomWaitTime >= 5.0f)
+                if (bomWaitTime >= 5.0f && bomCount > 0)
                 {
                     CollerWhite();
                     bomWaitTime = 0;

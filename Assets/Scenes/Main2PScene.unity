@@ -311,6 +311,7 @@ MonoBehaviour:
   idleSprite: {fileID: 21300000, guid: 52370a9b944293a49bb003e53c984cb7, type: 3}
   drillSprite: {fileID: 21300000, guid: 049f1099a2e990d429b4b150d1dcc464, type: 3}
   drillSprite2: {fileID: 21300000, guid: 1801f7e5ccef2f84796bb7a7e25e1101, type: 3}
+  bom: {fileID: 490392446}
   explosion: {fileID: 139366, guid: b185c1a9cf067374586d095111b15bd1, type: 3}
   downDrill: {fileID: 1508196237}
   rightDrill: {fileID: 1247035689}
@@ -4150,6 +4151,7 @@ MonoBehaviour:
   idleSprite: {fileID: 21300000, guid: 52370a9b944293a49bb003e53c984cb7, type: 3}
   drillSprite: {fileID: 21300000, guid: 049f1099a2e990d429b4b150d1dcc464, type: 3}
   drillSprite2: {fileID: 21300000, guid: 1801f7e5ccef2f84796bb7a7e25e1101, type: 3}
+  bom: {fileID: 1888023752}
   explosion: {fileID: 139366, guid: b185c1a9cf067374586d095111b15bd1, type: 3}
   downDrill: {fileID: 1790279416}
   rightDrill: {fileID: 2080674552}
@@ -6274,7 +6276,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1961473628
 Transform:
   m_ObjectHideFlags: 0
