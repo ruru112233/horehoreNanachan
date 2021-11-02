@@ -8,7 +8,9 @@ public class ItemCountManager : MonoBehaviour
     public Text drillCountText1
               , drillCountText2
               , bomCountText1
-              , bomCountText2;
+              , bomCountText2
+              , bomMeiText1
+              , bomMeiText2;
 
     private int drillCount1 = 21
               , drillCount2 = 21;
