@@ -348,12 +348,24 @@ public class Player : MonoBehaviour
             if (MasterData.playerMode == "P1PLAY")
             {
                 naichilab.RankingLoader.Instance.SendScoreAndShowRanking(Mathf.Round(GameManager.instance.YJIKU), 1);
-                
+                GameManager.instance.gameOver.SetActive(true);
             }
-            GameManager.instance.gameOver.SetActive(true);
+            else if (MasterData.playerMode == "P2PLAY")
+            {
+                if (this.gameObject.name == "Player")
+                {
+                    GameManager.instance.p2Win.SetActive(true);
+                }
+                else
+                {
+                    GameManager.instance.p1Win.SetActive(true);
+                }
+            }
+
+            GameManager.instance.GameOverFlag = true;
+            
             Destroy(gameObject);
         }
 
-        
     }
 }
