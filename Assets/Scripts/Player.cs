@@ -40,6 +40,8 @@ public class Player : MonoBehaviour
     int drillCount = 0;
     int bomCount = 0;
 
+    Animator anime;
+
     // キー操作
     public KeyCode downKey,
                    rightKey,
@@ -52,7 +54,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        //spriteRenderer = GetComponent<SpriteRenderer>();
 
         bomCol = bom.GetComponent<BoxCollider2D>();
         colSize = bomCol.size;
@@ -63,6 +65,7 @@ public class Player : MonoBehaviour
         sprite1 = GameObject.FindWithTag("P1ItemPanel").GetComponent<Image>();
         sprite2 = GameObject.FindWithTag("P2ItemPanel").GetComponent<Image>();
 
+        anime = gameObject.transform.GetChild(0).GetComponent<Animator>();
         
     }
 
@@ -111,7 +114,9 @@ public class Player : MonoBehaviour
                 rightDrill.SetActive(false);
                 leftDrill.SetActive(false);
 
-                spriteRenderer.sprite = drillSprite;
+                anime.SetBool("DrillFlag", true);
+
+                //spriteRenderer.sprite = drillSprite;
 
                 if (downDrill.transform.position.y > endPos.transform.position.y)
                 {
@@ -125,8 +130,7 @@ public class Player : MonoBehaviour
             }
             else if (Input.GetKey(rightKey) && Input.GetKey(digKey))
             {
-
-                spriteRenderer.sprite = drillSprite2;
+                //spriteRenderer.sprite = drillSprite2;
                 rightDrill.SetActive(true);
                 downDrill.transform.position = startPos.transform.position;
                 downDrill.SetActive(false);
@@ -135,7 +139,7 @@ public class Player : MonoBehaviour
             }
             else if (Input.GetKey(leftKey) && Input.GetKey(digKey))
             {
-                spriteRenderer.sprite = drillSprite2;
+                //spriteRenderer.sprite = drillSprite2;
                 leftDrill.SetActive(true);
                 downDrill.transform.position = startPos.transform.position;
                 downDrill.SetActive(false);
@@ -270,7 +274,8 @@ public class Player : MonoBehaviour
 
     void OffDrill()
     {
-        spriteRenderer.sprite = idleSprite;
+        //spriteRenderer.sprite = idleSprite;
+        anime.SetBool("DrillFlag", false);
         downDrill.transform.position = startPos.transform.position;
         downDrill.SetActive(false);
         rightDrill.SetActive(false);
@@ -301,13 +306,19 @@ public class Player : MonoBehaviour
 
             transform.position += new Vector3(moveX * Time.deltaTime, 0, 0);
 
-
+            anime.SetBool("WarkFlag", true);
         }
         else if (Input.GetKey(leftKey))
         {
             CharDirection();
 
             transform.position -= new Vector3(moveX * Time.deltaTime, 0, 0);
+            anime.SetBool("WarkFlag", true);
+        }
+        else
+        {
+            anime.SetBool("WarkFlag", false);
+            Debug.Log(anime);
         }
     }
 
