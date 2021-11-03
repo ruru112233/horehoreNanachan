@@ -19,7 +19,9 @@ public class GetItem : CommonBlock
         set { changeTarget = value; }
     }
 
-    float distance = 4;
+    float playerDistance = 0;
+    float maxDistance = 4;
+
 
     private TsuritenjouSpeedUpRule tsuritenjou;
 
@@ -33,9 +35,12 @@ public class GetItem : CommonBlock
 
     private void Update()
     {
-        float distance = DistanceValue(this.gameObject.transform.position, playerPos.position);
+        if (playerPos != null)
+        {
+            playerDistance = DistanceValue(this.gameObject.transform.position, playerPos.position);
+        }
 
-        if (distance < this.distance && distance > 1)
+        if (playerDistance < maxDistance && playerDistance > 1)
         {
             //this.gameObject.GetComponent<SpriteRenderer>().color = Color.black;
             ChangeTarget = Enums.ChangeTarget.TAGET.ToString();
