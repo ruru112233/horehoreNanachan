@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using EnumsScript;
 
-public class GetItem : MonoBehaviour
+public class GetItem : CommonBlock
 {
     [SerializeField] HatenaBlock hatenaBlock;
 
@@ -21,22 +21,14 @@ public class GetItem : MonoBehaviour
 
     float distance = 4;
 
-    Transform playerPos;
-
     private TsuritenjouSpeedUpRule tsuritenjou;
 
-    private void Start()
+    public override void Start()
     {
+        base.Start();
+
         tsuritenjou = GameObject.FindWithTag("UseManager").GetComponent<TsuritenjouSpeedUpRule>();
 
-        if (this.transform.position.x <= 6.0f)
-        {
-            playerPos = GameObject.FindGameObjectWithTag("Player").transform;
-        }
-        else
-        {
-            playerPos = GameObject.FindGameObjectWithTag("Player2").transform;
-        }
     }
 
     private void Update()
@@ -108,6 +100,11 @@ public class GetItem : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.CompareTag("tsuritenjou"))
+        {
+            ObjDel();
+        }
+
         if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Player2")
         {
             AudioManager.instance.PlaySE(2);
@@ -201,7 +198,7 @@ public class GetItem : MonoBehaviour
                 
             }
 
-            Destroy(gameObject);
+            ObjDel();
         }
     }
 
@@ -218,8 +215,13 @@ public class GetItem : MonoBehaviour
 
         yield return new WaitForSeconds(3);
 
-        Destroy(gameObject);
+        ObjDel();
 
+    }
+
+    void ObjDel()
+    {
+        this.gameObject.SetActive(false);
     }
 
 }
