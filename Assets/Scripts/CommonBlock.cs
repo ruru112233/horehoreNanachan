@@ -11,11 +11,17 @@ public class CommonBlock : MonoBehaviour
     {
         if (this.transform.position.x <= 6.0f)
         {
-            playerPos = GameObject.FindGameObjectWithTag("Player").transform;
+            if (GameObject.FindGameObjectWithTag("Player"))
+            {
+                playerPos = GameObject.FindGameObjectWithTag("Player").transform;
+            }
         }
         else
         {
-            playerPos = GameObject.FindGameObjectWithTag("Player2").transform;
+            if (GameObject.FindGameObjectWithTag("Player2"))
+            {
+                playerPos = GameObject.FindGameObjectWithTag("Player2").transform;
+            }
         }
     }
 

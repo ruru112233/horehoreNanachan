@@ -45,6 +45,12 @@ namespace EnumsScript
             UP,
             DOWN,
         }
+
+        public enum PlayerMode
+        {
+            P1PLAY,
+            P2PLAY,
+        }
     }
 }
 

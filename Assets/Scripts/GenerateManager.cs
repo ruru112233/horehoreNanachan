@@ -159,20 +159,26 @@ public class GenerateManager : MonoBehaviour
             randomMaxNo = block9MaxNo + 1;
         }
 
-        // ？ブロック出現
-        if (randomCount % 9 == 0)
+        
+        if (MasterData.playerMode == "P2PLAY")
         {
-            Clear();
-            block1MaxNo = 9;
-            block3MaxNo = 10;
-            block5MaxNo = 11;
-            block7MaxNo = 12;
-            block8MaxNo = 13;
-            block10MaxNo = 14;
+            Debug.Log(MasterData.playerMode);
 
-            randomMaxNo = block10MaxNo + 1;
+            // ？ブロック出現
+            if (randomCount % 9 == 0)
+            {
+                Clear();
+                block1MaxNo = 9;
+                block3MaxNo = 10;
+                block5MaxNo = 11;
+                block7MaxNo = 12;
+                block8MaxNo = 13;
+                block10MaxNo = 14;
+
+                randomMaxNo = block10MaxNo + 1;
+            }
         }
-
+        
         a = Random.Range(1, randomMaxNo);
         b = Random.Range(1, randomMaxNo);
         c = Random.Range(1, randomMaxNo);

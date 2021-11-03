@@ -31,8 +31,11 @@ public class Block : CommonBlock
         //    playerName = GameObject.FindGameObjectWithTag("Player2").gameObject.name;
         //}
 
-        playerName = playerPos.gameObject.name;
-        
+        if (playerPos)
+        {
+            playerName = playerPos.gameObject.name;
+        }
+
     }
 
     // Update is called once per frame

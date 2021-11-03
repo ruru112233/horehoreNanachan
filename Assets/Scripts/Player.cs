@@ -334,8 +334,12 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.tag == "tsuritenjou")
         {
+            if (MasterData.playerMode == "P1PLAY")
+            {
+                naichilab.RankingLoader.Instance.SendScoreAndShowRanking(Mathf.Round(GameManager.instance.YJIKU), 1);
+                
+            }
             GameManager.instance.gameOver.SetActive(true);
-            naichilab.RankingLoader.Instance.SendScoreAndShowRanking(Mathf.Round(GameManager.instance.YJIKU), 1);
             Destroy(gameObject);
         }
 
