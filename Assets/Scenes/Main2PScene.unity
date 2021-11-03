@@ -2991,7 +2991,7 @@ GameObject:
   - component: {fileID: 1165947325}
   - component: {fileID: 1165947326}
   m_Layer: 0
-  m_Name: o-ra
+  m_Name: o-ra1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3235,7 +3235,7 @@ GameObject:
   - component: {fileID: 1209211146}
   - component: {fileID: 1209211147}
   m_Layer: 0
-  m_Name: o-ra
+  m_Name: o-ra2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6452,7 +6452,8 @@ MonoBehaviour:
   gameOver: {fileID: 1885154740}
   setsumeiPanel: {fileID: 398845101}
   blockPanel: {fileID: 398845102}
-  ora: {fileID: 1165947324}
+  ora1: {fileID: 1165947324}
+  ora2: {fileID: 1209211145}
   horeru: {fileID: 624337544}
   drill: {fileID: 1890511767}
   doubleDrill: {fileID: 117531874}
