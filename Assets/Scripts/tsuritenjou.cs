@@ -23,17 +23,20 @@ public class tsuritenjou : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        speedTime += Time.deltaTime;
-
-        if (speedTime > 15.4f)
+        if (!GameManager.instance.GameOverFlag)
         {
-            //GameManager.instance.TsuritenjouSpeed += 0.2f;
-            TsuritenjouSpeed += 0.2f;
-            speedTime = 0;
-        }
+            speedTime += Time.deltaTime;
 
-        //transform.position -= new Vector3(0, GameManager.instance.TsuritenjouSpeed * Time.deltaTime,0);
-        transform.position -= new Vector3(0, TsuritenjouSpeed * Time.deltaTime, 0);
+            if (speedTime > 15.4f)
+            {
+                //GameManager.instance.TsuritenjouSpeed += 0.2f;
+                TsuritenjouSpeed += 0.2f;
+                speedTime = 0;
+            }
+
+            //transform.position -= new Vector3(0, GameManager.instance.TsuritenjouSpeed * Time.deltaTime,0);
+            transform.position -= new Vector3(0, TsuritenjouSpeed * Time.deltaTime, 0);
+        }
     }
 
 }

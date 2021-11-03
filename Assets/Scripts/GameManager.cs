@@ -18,7 +18,11 @@ public class GameManager : MonoBehaviour
 
     public ItemCountManager itemCountManager;
 
-    public GameObject gameOver;
+    public GameObject gameOver
+                    , p1Win
+                    , p2Win;
+
+    private bool gameOverFlag = false;
 
     public GameObject setsumeiPanel, blockPanel;
 
@@ -99,6 +103,12 @@ public class GameManager : MonoBehaviour
         set { mutekiTime2 = value; }
     }
 
+    public bool GameOverFlag
+    {
+        get { return gameOverFlag; }
+        set { gameOverFlag = value; }
+    }
+
     public static GameManager instance;
 
     private void Awake()
@@ -116,11 +126,15 @@ public class GameManager : MonoBehaviour
         BomCount = 3;
 
         gameOver.SetActive(false);
+        p1Win.SetActive(false);
+        p2Win.SetActive(false);
         PanelClear();
 
         blockPanel.SetActive(false);
         setsumeiPanel.SetActive(false);
-        
+
+        GameOverFlag = false;
+
         if (ora1 != null) ora1.SetActive(false);
         if (ora2 != null) ora2.SetActive(false);
 
