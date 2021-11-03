@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Block : MonoBehaviour
+public class Block : CommonBlock
 {
     private float holeTime = 0;
 
@@ -19,16 +19,20 @@ public class Block : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    public override void Start()
     {
-        if (this.transform.position.x <= 6.0f)
-        {
-            playerName = GameObject.FindGameObjectWithTag("Player").gameObject.name;
-        }
-        else
-        {
-            playerName = GameObject.FindGameObjectWithTag("Player2").gameObject.name;
-        }
+        base.Start();
+        //if (this.transform.position.x <= 6.0f)
+        //{
+        //    playerName = GameObject.FindGameObjectWithTag("Player").gameObject.name;
+        //}
+        //else
+        //{
+        //    playerName = GameObject.FindGameObjectWithTag("Player2").gameObject.name;
+        //}
+
+        playerName = playerPos.gameObject.name;
+        
     }
 
     // Update is called once per frame
@@ -39,7 +43,6 @@ public class Block : MonoBehaviour
 
             if (seCount < 1)
             {
-
                 AudioManager.instance.PlaySE(0);
             }
             seCount++;
@@ -58,8 +61,14 @@ public class Block : MonoBehaviour
     {
         if (collision.gameObject.tag == "bom")
         {
-            Destroy(gameObject);
+            ObjDel();
         }
+
+        if (collision.gameObject.CompareTag("tsuritenjou"))
+        {
+            ObjDel();
+        }
+
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -115,25 +124,29 @@ public class Block : MonoBehaviour
     void Player1DrillCount()
     {
         GameManager.instance.itemCountManager.DrillCount1--;
-        Destroy(gameObject);
+        ObjDel();
     }
 
     void Player2DrillCount()
     {
         GameManager.instance.itemCountManager.DrillCount2--;
-        Destroy(gameObject);
+        ObjDel();
+    }
+
+    void ObjDel()
+    {
+        this.gameObject.SetActive(false);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "drill")
+        if (collision.gameObject.CompareTag("drill"))
         {
             AudioManager.instance.StopSe(0);
             drillFlag = false;
-
         }
-    }
 
+    }
 
 
 }
