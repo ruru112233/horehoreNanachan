@@ -89,22 +89,22 @@ public class Block : MonoBehaviour
 
         if (playerName == "Player")
         {
-            if (HoleTime > 0.8f && !GameManager.instance.MutekiFlag)
+            if (HoleTime > 0.8f && !GameManager.instance.MutekiFlag1)
             {
                 Player1DrillCount();
             }
-            else if (HoleTime > 0.4f && GameManager.instance.MutekiFlag)
+            else if (HoleTime > 0.4f && GameManager.instance.MutekiFlag1)
             {
                 Player1DrillCount();
             }
         }
         else
         {
-            if (HoleTime > 0.8f && !GameManager.instance.MutekiFlag)
+            if (HoleTime > 0.8f && !GameManager.instance.MutekiFlag2)
             {
                 Player2DrillCount();
             }
-            else if (HoleTime > 0.4f && GameManager.instance.MutekiFlag)
+            else if (HoleTime > 0.4f && GameManager.instance.MutekiFlag2)
             {
                 Player2DrillCount();
             }

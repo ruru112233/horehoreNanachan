@@ -178,15 +178,27 @@ public class GetItem : MonoBehaviour
             }
             else if (Enums.ITEM.MUTEKi == item)
             {
-                GameManager.instance.MutekiTime = 0;
-                GameManager.instance.MutekiFlag = true;
-
-                if (GameManager.instance.ora != null)
+                if (collision.gameObject.CompareTag("Player"))
                 {
-                    GameManager.instance.ora.SetActive(true);
+                    GameManager.instance.MutekiTime1 = 0;
+                    GameManager.instance.MutekiFlag1 = true;
+
+                    if (GameManager.instance.ora1 != null)
+                        GameManager.instance.ora1.SetActive(true);
+
+                    AudioManager.instance.PlayBGM(1);
+                }
+                else
+                {
+                    GameManager.instance.MutekiTime2 = 0;
+                    GameManager.instance.MutekiFlag2 = true;
+
+                    if (GameManager.instance.ora2 != null)
+                        GameManager.instance.ora2.SetActive(true);
+
+                    AudioManager.instance.PlayBGM(1);
                 }
                 
-                AudioManager.instance.PlayBGM(1);
             }
 
             Destroy(gameObject);

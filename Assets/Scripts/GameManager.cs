@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject setsumeiPanel, blockPanel;
 
-    public GameObject ora;
+    public GameObject ora1,ora2;
 
     public GameObject horeru, drill, doubleDrill, bom, speedUp, speedDoun, star, ice;
 
@@ -35,11 +35,13 @@ public class GameManager : MonoBehaviour
     private float yJiku = 0;
 
     bool pause = false;
-    bool mutekiFlag = false;
+    bool mutekiFlag1 = false
+       , mutekiFlag2 = false;
 
     bool blockPanelFlag = false;
 
-    private float mutekiTime = 0;
+    private float mutekiTime1 = 0
+                , mutekiTime2 = 0;
 
     GameObject player;
 
@@ -73,16 +75,28 @@ public class GameManager : MonoBehaviour
         set { tsuritenjouSpeed = value; }
     }
 
-    public bool MutekiFlag
+    public bool MutekiFlag1
     {
-        get { return mutekiFlag; }
-        set { mutekiFlag = value; }
+        get { return mutekiFlag1; }
+        set { mutekiFlag1 = value; }
     }
 
-    public float MutekiTime
+    public bool MutekiFlag2
     {
-        get { return mutekiTime; }
-        set { mutekiTime = value; }
+        get { return mutekiFlag2; }
+        set { mutekiFlag2 = value; }
+    }
+
+    public float MutekiTime1
+    {
+        get { return mutekiTime1; }
+        set { mutekiTime1 = value; }
+    }
+
+    public float MutekiTime2
+    {
+        get { return mutekiTime2; }
+        set { mutekiTime2 = value; }
     }
 
     public static GameManager instance;
@@ -107,11 +121,9 @@ public class GameManager : MonoBehaviour
         blockPanel.SetActive(false);
         setsumeiPanel.SetActive(false);
         
-        if (ora != null)
-        {
-            ora.SetActive(false);
-        }
-        
+        if (ora1 != null) ora1.SetActive(false);
+        if (ora2 != null) ora2.SetActive(false);
+
         player = GameObject.FindGameObjectWithTag("Player");
 
         AudioManager.instance.PlayBGM(0);
@@ -166,21 +178,34 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        // ドリルスピードアップ
-        if (MutekiFlag)
+        // プレイヤー１のドリルスピードアップ
+        if (MutekiFlag1)
         {
-            MutekiTime += Time.deltaTime;
+            MutekiTime1 += Time.deltaTime;
 
-            if (MutekiTime >= 7.0f)
+            if (MutekiTime1 >= 7.0f)
             {
-                if (ora != null)
-                {
-                    ora.SetActive(false);
-                }
+                if (ora1 != null) ora1.SetActive(false);
                 
                 AudioManager.instance.PlayBGM(0);
-                MutekiFlag = false;
-                MutekiTime = 0;
+                MutekiFlag1 = false;
+                MutekiTime1 = 0;
+            }
+
+        }
+
+        // プレイヤー２のドリルスピードアップ
+        if (MutekiFlag2)
+        {
+            MutekiTime2 += Time.deltaTime;
+
+            if (MutekiTime2 >= 7.0f)
+            {
+                if (ora2 != null) ora2.SetActive(false);
+
+                AudioManager.instance.PlayBGM(0);
+                MutekiFlag2 = false;
+                MutekiTime2 = 0;
             }
 
         }
