@@ -18,6 +18,8 @@ public class Block : CommonBlock
         set { holeTime = value; }
     }
 
+    Animator anime;
+
     // Start is called before the first frame update
     public override void Start()
     {
@@ -30,6 +32,8 @@ public class Block : CommonBlock
         //{
         //    playerName = GameObject.FindGameObjectWithTag("Player2").gameObject.name;
         //}
+
+        anime = GetComponent<Animator>();
 
         if (playerPos)
         {
@@ -69,6 +73,7 @@ public class Block : CommonBlock
 
         if (collision.gameObject.CompareTag("tsuritenjou"))
         {
+            anime.SetTrigger("LockBreak");
             ObjDel();
         }
 
