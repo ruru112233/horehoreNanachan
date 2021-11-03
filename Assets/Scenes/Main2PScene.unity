@@ -2457,6 +2457,7 @@ MonoBehaviour:
   BlockPrefab7: {fileID: 5952249951612106594, guid: ebffcb319bc8713499c724887ae4af25, type: 3}
   BlockPrefab8: {fileID: 5696164467911951946, guid: a20f11726337d544f8117d8a464254db, type: 3}
   BlockPrefab9: {fileID: 7630854075229660392, guid: f61fee830e382a449b1d1e5df94546f2, type: 3}
+  BlockPrefab10: {fileID: 9045787884452151280, guid: 8c7ba99d52deaf645b540f0debd40b17, type: 3}
   groundBlock: {fileID: 374119732}
   itemBlock: {fileID: 984232189}
 --- !u!1 &1053914645
@@ -4677,7 +4678,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!50 &1667837088
 Rigidbody2D:
   serializedVersion: 4

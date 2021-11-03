@@ -5,16 +5,15 @@ using UnityEngine;
 public class GenerateManager : MonoBehaviour
 {
     public GameObject BlockPrefab0, BlockPrefab1, BlockPrefab2, BlockPrefab3, 
-                      BlockPrefab4, BlockPrefab5, BlockPrefab6, BlockPrefab7, BlockPrefab8, BlockPrefab9;
+                      BlockPrefab4, BlockPrefab5, BlockPrefab6, BlockPrefab7, BlockPrefab8, BlockPrefab9, BlockPrefab10;
 
     public GameObject groundBlock, itemBlock;
 
     float pos = -4;
 
-    //スタートポジション
+    //スタートポジションRandomPos
     float startPos = 5;
 
-    
     int block1MaxNo = 10;
     int block3MaxNo = 12;
     int block5MaxNo = 0;
@@ -22,6 +21,7 @@ public class GenerateManager : MonoBehaviour
     int block7MaxNo = 0;
     int block8MaxNo = 0;
     int block9MaxNo = 0;
+    int block10MaxNo = 0;
 
     int randomCount = 0;
 
@@ -159,6 +159,20 @@ public class GenerateManager : MonoBehaviour
             randomMaxNo = block9MaxNo + 1;
         }
 
+        // ？ブロック出現
+        if (randomCount % 9 == 0)
+        {
+            Clear();
+            block1MaxNo = 9;
+            block3MaxNo = 10;
+            block5MaxNo = 11;
+            block7MaxNo = 12;
+            block8MaxNo = 13;
+            block10MaxNo = 14;
+
+            randomMaxNo = block10MaxNo + 1;
+        }
+
         a = Random.Range(1, randomMaxNo);
         b = Random.Range(1, randomMaxNo);
         c = Random.Range(1, randomMaxNo);
@@ -240,6 +254,10 @@ public class GenerateManager : MonoBehaviour
                 else if (blockImage2[i][j] == block9MaxNo)
                 {
                     InstanceView(BlockPrefab9, itemBlock.transform, -pos, j, i);
+                }
+                else if (blockImage2[i][j] == block10MaxNo)
+                {
+                    InstanceView(BlockPrefab10, itemBlock.transform, -pos, j, i);
                 }
 
             }
