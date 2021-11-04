@@ -59,11 +59,14 @@ public class Player : MonoBehaviour
         bomCol = bom.GetComponent<BoxCollider2D>();
         colSize = bomCol.size;
         bomCol.enabled = false;
+        
+        if(MasterData.playerMode == "P2PLAY")
+        {
+            useScript = GameObject.FindWithTag("UseManager").GetComponent<UseScript>();
+            sprite1 = GameObject.FindWithTag("P1ItemPanel").GetComponent<Image>();
+            sprite2 = GameObject.FindWithTag("P2ItemPanel").GetComponent<Image>();
+        }
 
-        useScript = GameObject.FindWithTag("UseManager").GetComponent<UseScript>();
-
-        sprite1 = GameObject.FindWithTag("P1ItemPanel").GetComponent<Image>();
-        sprite2 = GameObject.FindWithTag("P2ItemPanel").GetComponent<Image>();
 
         anime = gameObject.transform.GetChild(0).GetComponent<Animator>();
         
@@ -217,13 +220,16 @@ public class Player : MonoBehaviour
     // ストックされたアイテムを使用する
     void ItemUse()
     {
-        if (PlayerType.Player1 == playerType)
+        if (MasterData.playerMode == "P2PLAY")
         {
-            UseSelect(sprite1);
-        }
-        else
-        {
-            UseSelect(sprite2);
+            if (PlayerType.Player1 == playerType)
+            {
+                UseSelect(sprite1);
+            }
+            else
+            {
+                UseSelect(sprite2);
+            }
         }
     }
 

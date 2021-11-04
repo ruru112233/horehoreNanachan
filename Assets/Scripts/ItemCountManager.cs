@@ -65,12 +65,12 @@ public class ItemCountManager : MonoBehaviour
         }
 
         // ÉhÉäÉãêîÇÃîΩâf
-        if (drillCountText1.text != null) drillCountText1.text = DrillCount1.ToString();
-        if (drillCountText2.text != null) drillCountText2.text = DrillCount2.ToString();
+        if (drillCountText1) drillCountText1.text = DrillCount1.ToString();
+        if (drillCountText2) drillCountText2.text = DrillCount2.ToString();
 
         // É{ÉÄêîÇÃîΩâf
-        if (bomCountText1.text != null) bomCountText1.text = BomCount1.ToString();
-        if (bomCountText2.text != null) bomCountText2.text = BomCount2.ToString();
+        if (bomCountText1) bomCountText1.text = BomCount1.ToString();
+        if (bomCountText2) bomCountText2.text = BomCount2.ToString();
     }
 
 

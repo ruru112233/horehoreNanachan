@@ -32,9 +32,11 @@ public class GameManager : MonoBehaviour
 
     public StopScript stopScript;
 
+    public Sprite groundSprite;
+
     int setumeiNo = 1;
 
-    private float tsuritenjouSpeed = 0.3f;
+    //private float tsuritenjouSpeed = 0.3f;
 
     private float yJiku = 0;
 
@@ -73,11 +75,11 @@ public class GameManager : MonoBehaviour
         set { yJiku = value; }
     }
 
-    public float TsuritenjouSpeed
-    {
-        get { return tsuritenjouSpeed; }
-        set { tsuritenjouSpeed = value; }
-    }
+    //public float TsuritenjouSpeed
+    //{
+    //    get { return tsuritenjouSpeed; }
+    //    set { tsuritenjouSpeed = value; }
+    //}
 
     public bool MutekiFlag1
     {
@@ -126,8 +128,8 @@ public class GameManager : MonoBehaviour
         BomCount = 3;
 
         gameOver.SetActive(false);
-        p1Win.SetActive(false);
-        p2Win.SetActive(false);
+        if(p1Win) p1Win.SetActive(false);
+        if(p2Win) p2Win.SetActive(false);
         PanelClear();
 
         blockPanel.SetActive(false);
@@ -135,8 +137,8 @@ public class GameManager : MonoBehaviour
 
         GameOverFlag = false;
 
-        if (ora1 != null) ora1.SetActive(false);
-        if (ora2 != null) ora2.SetActive(false);
+        if (ora1) ora1.SetActive(false);
+        if (ora2) ora2.SetActive(false);
 
         player = GameObject.FindGameObjectWithTag("Player");
 
