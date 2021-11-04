@@ -4,5 +4,5 @@ using UnityEngine;
 
 public static class MasterData
 {
-    public static string playerMode = "P2PLAY";
+    public static string playerMode = EnumsScript.Enums.PlayerMode.P1PLAY.ToString();
 }

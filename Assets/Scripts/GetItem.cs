@@ -29,8 +29,10 @@ public class GetItem : CommonBlock
     {
         base.Start();
 
-        tsuritenjou = GameObject.FindWithTag("UseManager").GetComponent<TsuritenjouSpeedUpRule>();
-
+        //if(MasterData.playerMode == "P2PLAY")
+        //{
+            tsuritenjou = GameObject.FindWithTag("UseManager").GetComponent<TsuritenjouSpeedUpRule>();
+        //}
     }
 
     private void Update()
@@ -176,7 +178,6 @@ public class GetItem : CommonBlock
                 {
                     tsuritenjou.tsuritenjou2.TsuritenjouSpeed += 0.1f;
                 }
-                GameManager.instance.TsuritenjouSpeed += 0.1f;
             }
             else if (Enums.ITEM.MUTEKi == item)
             {
