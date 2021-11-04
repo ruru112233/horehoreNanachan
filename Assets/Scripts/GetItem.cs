@@ -7,7 +7,7 @@ public class GetItem : CommonBlock
 {
     [SerializeField] HatenaBlock hatenaBlock;
 
-    [SerializeField] Sprite groundSprite;
+    //[SerializeField] Sprite groundSprite;
 
     public Enums.ITEM item;
 
@@ -76,8 +76,10 @@ public class GetItem : CommonBlock
 
         SpriteRenderer spriteRenderer = this.GetComponent<SpriteRenderer>();
 
-        spriteRenderer.sprite = groundSprite;
+        spriteRenderer.sprite = GameManager.instance.groundSprite;
         spriteRenderer.color = Color.white;
+
+        this.gameObject.transform.localScale = new Vector3(1, 1, 1);
 
         foreach (Transform child in this.gameObject.transform)
         {
@@ -87,7 +89,7 @@ public class GetItem : CommonBlock
         BoxCollider2D boxCollider = this.GetComponent<BoxCollider2D>();
         boxCollider.isTrigger = false;
         boxCollider.offset = new Vector2(0, 0);
-        boxCollider.size = new Vector2(4.8f, 4.8f);
+        boxCollider.size = new Vector2(1.0f, 1.0f);
 
         this.gameObject.AddComponent<Block>();
 

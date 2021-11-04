@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour
 
     public StopScript stopScript;
 
+    public Sprite groundSprite;
+
     int setumeiNo = 1;
 
     //private float tsuritenjouSpeed = 0.3f;

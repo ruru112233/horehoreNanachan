@@ -390,7 +390,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &95028348
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4047,7 +4047,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!50 &1667837088
 Rigidbody2D:
   serializedVersion: 4
@@ -5260,6 +5260,7 @@ MonoBehaviour:
   star: {fileID: 1762788688}
   ice: {fileID: 43875883}
   stopScript: {fileID: 1327259895}
+  groundSprite: {fileID: -8019810097720303213, guid: ad382365e2a89c042b391b8339421077, type: 3}
   p1ChangeFlag: 0
   p2ChangeFlag: 0
   textGray: {r: 0.5, g: 0.5, b: 0.5, a: 1}
