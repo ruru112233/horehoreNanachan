@@ -118,7 +118,7 @@ public class Player : MonoBehaviour
                 leftDrill.SetActive(false);
 
                 anime.SetBool("DrillFlag", true);
-
+                anime.SetBool("DrillSideFlag", false);
                 //spriteRenderer.sprite = drillSprite;
 
                 if (downDrill.transform.position.y > endPos.transform.position.y)
@@ -134,6 +134,8 @@ public class Player : MonoBehaviour
             else if (Input.GetKey(rightKey) && Input.GetKey(digKey))
             {
                 //spriteRenderer.sprite = drillSprite2;
+                anime.SetBool("DrillSideFlag", true);
+                anime.SetBool("DrillFlag", false);
                 rightDrill.SetActive(true);
                 downDrill.transform.position = startPos.transform.position;
                 downDrill.SetActive(false);
@@ -143,6 +145,8 @@ public class Player : MonoBehaviour
             else if (Input.GetKey(leftKey) && Input.GetKey(digKey))
             {
                 //spriteRenderer.sprite = drillSprite2;
+                anime.SetBool("DrillSideFlag", true);
+                anime.SetBool("DrillFlag", false);
                 leftDrill.SetActive(true);
                 downDrill.transform.position = startPos.transform.position;
                 downDrill.SetActive(false);
@@ -286,6 +290,7 @@ public class Player : MonoBehaviour
     {
         //spriteRenderer.sprite = idleSprite;
         anime.SetBool("DrillFlag", false);
+        anime.SetBool("DrillSideFlag", false);
         downDrill.transform.position = startPos.transform.position;
         downDrill.SetActive(false);
         rightDrill.SetActive(false);
@@ -378,4 +383,5 @@ public class Player : MonoBehaviour
         }
 
     }
+
 }
