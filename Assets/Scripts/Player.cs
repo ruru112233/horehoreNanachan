@@ -407,6 +407,8 @@ public class Player : MonoBehaviour
                 }
             }
 
+            GameManager.instance.resultPanel.SetActive(true);
+
             GameManager.instance.GameOverFlag = true;
             
             Destroy(gameObject);

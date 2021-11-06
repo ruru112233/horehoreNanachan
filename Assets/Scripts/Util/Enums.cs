@@ -58,6 +58,12 @@ namespace EnumsScript
             P2BUTTON,
             OPTION,
         }
+        
+        public enum ResultSelectMode
+        {
+            RETRY,
+            TITLE,
+        }
     }
 }
 

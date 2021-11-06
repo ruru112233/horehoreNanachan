@@ -34,6 +34,8 @@ public class GameManager : MonoBehaviour
 
     public Sprite groundSprite;
 
+    public GameObject resultPanel;
+
     int setumeiNo = 1;
 
     //private float tsuritenjouSpeed = 0.3f;
@@ -139,6 +141,8 @@ public class GameManager : MonoBehaviour
 
         if (ora1) ora1.SetActive(false);
         if (ora2) ora2.SetActive(false);
+
+        if (resultPanel) resultPanel.SetActive(false);
 
         player = GameObject.FindGameObjectWithTag("Player");
 

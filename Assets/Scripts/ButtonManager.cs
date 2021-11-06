@@ -19,14 +19,14 @@ public class ButtonManager : MonoBehaviour
         
     }
 
-    public void ReStartButton()
+    public void ReTryButton()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void TitleButton()
     {
-        SceneManager.LoadScene("TitleScene");
+        SceneManager.LoadScene("TitleScene2");
     }
 
     public void Ranking()
