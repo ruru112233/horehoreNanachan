@@ -43,14 +43,16 @@ public class Player : MonoBehaviour
     Animator anime;
 
     // キー操作
-    public KeyCode downKey,
-                   rightKey,
-                   leftKey,
-                   digKey,
-                   bomKey,
-                   itemUseKey,
-                   startKey,
-                   selectKey;
+    KeyCode downKey,
+            rightKey,
+            leftKey,
+            digKey,
+            bomKey,
+            itemUseKey,
+            startKey,
+            selectKey;
+
+    MasterKeyController keyData;
 
     void Start()
     {
@@ -67,6 +69,8 @@ public class Player : MonoBehaviour
             sprite2 = GameObject.FindWithTag("P2ItemPanel").GetComponent<Image>();
         }
 
+        keyData = MasterKeyController.instance;
+        SetKey();
 
         anime = gameObject.transform.GetChild(0).GetComponent<Animator>();
         
@@ -104,6 +108,32 @@ public class Player : MonoBehaviour
         else if(GameManager.instance.player2Stop && this.gameObject.name == "Player2")
         {
             OffDrill();
+        }
+    }
+
+    void SetKey()
+    {
+        if (this.gameObject.name == "Player")
+        {
+            downKey = keyData.P1Controller().downKey;
+            rightKey = keyData.P1Controller().rightKey;
+            leftKey = keyData.P1Controller().leftKey;
+            digKey = keyData.P1Controller().digKey;
+            bomKey = keyData.P1Controller().bomKey;
+            itemUseKey = keyData.P1Controller().itemUseKey;
+            startKey = keyData.P1Controller().startKey;
+            selectKey = keyData.P1Controller().selectKey;
+        }
+        else
+        {
+            downKey = keyData.P2Controller().downKey;
+            rightKey = keyData.P2Controller().rightKey;
+            leftKey = keyData.P2Controller().leftKey;
+            digKey = keyData.P2Controller().digKey;
+            bomKey = keyData.P2Controller().bomKey;
+            itemUseKey = keyData.P2Controller().itemUseKey;
+            startKey = keyData.P2Controller().startKey;
+            selectKey = keyData.P2Controller().selectKey;
         }
     }
 
