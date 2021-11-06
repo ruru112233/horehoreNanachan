@@ -34,4 +34,21 @@ public class ButtonManager : MonoBehaviour
         naichilab.RankingLoader.Instance.SendScoreAndShowRanking(rankingNo, 0);
     }
 
+    public void P1PlayButton()
+    {
+        MasterData.playerMode = EnumsScript.Enums.PlayerMode.P1PLAY.ToString();
+        SceneManager.LoadScene("MainScene");
+    }
+
+    public void P2PlayButton()
+    {
+        MasterData.playerMode = EnumsScript.Enums.PlayerMode.P2PLAY.ToString();
+        SceneManager.LoadScene("Main2PScene");
+    }
+
+    public void OptionButton()
+    {
+
+    }
+
 }

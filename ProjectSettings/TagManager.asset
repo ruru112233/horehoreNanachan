@@ -18,6 +18,7 @@ TagManager:
   - UseManager
   - ChangeTarget
   - ItemBlocks
+  - MasterController
   layers:
   - Default
   - TransparentFX

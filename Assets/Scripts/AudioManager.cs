@@ -15,6 +15,15 @@ public class AudioManager : MonoBehaviour
         {
             instance = this;
         }
+
+        if (this != instance)
+        {
+            Destroy(this.gameObject);
+
+            return;
+        }
+
+        DontDestroyOnLoad(this.gameObject);
     }
 
     // Start is called before the first frame update
