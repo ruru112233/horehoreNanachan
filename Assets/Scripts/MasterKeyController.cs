@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class MasterKeyController : MonoBehaviour
 {
-
-    
 
     [Header("[P1のコントローラー]")]
     public KeyCode upP1Key = KeyCode.None;
@@ -29,6 +28,10 @@ public class MasterKeyController : MonoBehaviour
     public KeyCode itemUseP2Key = KeyCode.None;
     public KeyCode startP2Key = KeyCode.None;
     public KeyCode selectP2Key = KeyCode.None;
+
+    // キーの色
+    public Color defaultColor = Color.white;
+    public Color selectColor = Color.blue;
 
     public static MasterKeyController instance;
 

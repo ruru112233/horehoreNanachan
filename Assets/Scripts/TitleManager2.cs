@@ -93,23 +93,23 @@ public class TitleManager2 : MonoBehaviour
     {
         if (selectMode == EnumsScript.Enums.SelectMode.P1BUTTON.ToString())
         {
-            p1Button.color = Color.blue;
+            p1Button.color = masterKeyController.selectColor;
         }
         else if (selectMode == EnumsScript.Enums.SelectMode.P2BUTTON.ToString())
         {
-            p2Button.color = Color.blue;
+            p2Button.color = masterKeyController.selectColor;
         }
         else if (selectMode == EnumsScript.Enums.SelectMode.OPTION.ToString())
         {
-            optionButton.color = Color.blue;
+            optionButton.color = masterKeyController.selectColor;
         }
     }
 
     void DefoColor()
     {
-        p1Button.color = Color.white;
-        p2Button.color = Color.white;
-        optionButton.color = Color.white;
+        p1Button.color = masterKeyController.defaultColor;
+        p2Button.color = masterKeyController.defaultColor;
+        optionButton.color = masterKeyController.defaultColor;
     }
 
     void SceneSeni()
