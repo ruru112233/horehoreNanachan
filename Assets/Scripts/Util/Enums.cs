@@ -51,6 +51,13 @@ namespace EnumsScript
             P1PLAY,
             P2PLAY,
         }
+
+        public enum SelectMode
+        {
+            P1BUTTON,
+            P2BUTTON,
+            OPTION,
+        }
     }
 }
 
