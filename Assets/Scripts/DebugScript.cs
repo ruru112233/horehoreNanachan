@@ -5,7 +5,11 @@ using UnityEngine.UI;
 
 public class DebugScript : MonoBehaviour
 {
-    [SerializeField] StockItemManager stockItemManager;
+    //[SerializeField] StockItemManager stockItemManager;
+
+    [SerializeField] StockItemPanel stockItemPanel;
+
+    [SerializeField] Text text1, text2;
 
     Image sprite;
 
@@ -23,47 +27,49 @@ public class DebugScript : MonoBehaviour
     public void SetItemBox()
     {
         // imageを取得
-        sprite = GameObject.FindWithTag("P1ItemPanel").GetComponent<Image>();
+        //sprite = GameObject.FindWithTag("P1ItemPanel").GetComponent<Image>();
 
-        changeCount = 0;
-        chengeTime = 0.01f;
-        selectItemFlag = true;
+        //changeCount = 0;
+        //chengeTime = 0.01f;
+        //selectItemFlag = true;
     }
 
     private void Update()
     {
-        if (selectItemFlag)
-        {
-            if (changeCount > spriteCount)
-            {
-                selectItemFlag = false;
-                return;
-            }
-            SetTimeSprite(sprite);
-        }
+        text1.text = "ItemName:" + stockItemPanel.ItemName;
+        text2.text = "QuantityCange" + stockItemPanel.QuantityCange;
+        //if (selectItemFlag)
+        //{
+        //    if (changeCount > spriteCount)
+        //    {
+        //        selectItemFlag = false;
+        //        return;
+        //    }
+        //    SetTimeSprite(sprite);
+        //}
     }
 
     // 一定時間毎に画像をセットする
-    void SetTimeSprite(Image sprite)
-    {
-        startTime += Time.deltaTime;
+    //void SetTimeSprite(Image sprite)
+    //{
+    //    startTime += Time.deltaTime;
 
-        if (startTime > chengeTime)
-        {
-            startTime = 0;
-            changeCount++;
-            chengeTime += plusTime;
-            sprite.sprite = RandSprite();
-        }
-    }
+    //    if (startTime > chengeTime)
+    //    {
+    //        startTime = 0;
+    //        changeCount++;
+    //        chengeTime += plusTime;
+    //        sprite.sprite = RandSprite();
+    //    }
+    //}
 
 
     // ランダムでセットする画像を返す
-    Sprite RandSprite()
-    {
-        int num = CalcScript.RandInt(0, 5);
+    //Sprite RandSprite()
+    //{
+    //    int num = CalcScript.RandInt(0, 5);
 
-        return stockItemManager.selectItemSpriteList[num];
-    }
+    //    return stockItemManager.selectItemSpriteList[num];
+    //}
 
 }

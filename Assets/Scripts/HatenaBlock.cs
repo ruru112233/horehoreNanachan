@@ -32,6 +32,7 @@ public class HatenaBlock : MonoBehaviour
     private void Start()
     {
         stockItemManager = GameObject.FindWithTag("StockItemManager").GetComponent<StockItemManager>();
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -42,7 +43,7 @@ public class HatenaBlock : MonoBehaviour
             sprite = GameObject.FindWithTag("P1ItemPanel").GetComponent<Image>();
 
         }
-        else if(collision.gameObject.CompareTag("Player2"))
+        else if (collision.gameObject.CompareTag("Player2"))
         {
             stockItemPanel = GameObject.FindWithTag("P2ItemPanel").GetComponent<StockItemPanel>();
             sprite = GameObject.FindWithTag("P2ItemPanel").GetComponent<Image>();
@@ -64,6 +65,12 @@ public class HatenaBlock : MonoBehaviour
 
                 return;
             }
+            else if (changeCount == 1)
+            {
+                stockItemPanel.ItemName = "";
+                stockItemPanel.QuantityCange = "";
+                stockItemPanel.StealFlag = false;
+            }
             SetTimeSprite(sprite);
         }
     }
@@ -75,6 +82,7 @@ public class HatenaBlock : MonoBehaviour
         changeCount = 0;
         chengeTime = 0.01f;
         selectItemFlag = true;
+
     }
 
     // 一定時間毎に画像をセットする
@@ -95,7 +103,7 @@ public class HatenaBlock : MonoBehaviour
     // ランダムでセットする画像を返す
     Sprite RandSprite()
     {
-        int num = CalcScript.RandInt(0, 5);
+        int num = CalcScript.RandInt(0, 8);
 
         return stockItemManager.selectItemSpriteList[num];
     }

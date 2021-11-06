@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class StockItemPanel : MonoBehaviour
 {
- 
+
     private string itemName = "";
     private string quantityCange = "";
+    private bool stealFlag = false;
 
     public string ItemName
     {
@@ -18,6 +19,12 @@ public class StockItemPanel : MonoBehaviour
     {
         get { return quantityCange; }
         set { quantityCange = value; }
+    }
+
+    public bool StealFlag
+    {
+        get { return stealFlag; }
+        set { stealFlag = value; }
     }
 
 }
