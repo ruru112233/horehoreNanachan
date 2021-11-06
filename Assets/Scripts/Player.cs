@@ -241,7 +241,11 @@ public class Player : MonoBehaviour
         {
             useScript.ItemUseSelect(stockItemPanel.ItemName, this.gameObject.name, stockItemPanel.QuantityCange);
 
-            if (stockItemPanel.ItemName != "STEAL")
+            if (stockItemPanel.StealFlag)
+            {
+                stockItemPanel.StealFlag = false;
+            }
+            else
             {
                 stockItemPanel.ItemName = "";
                 stockItemPanel.QuantityCange = "";

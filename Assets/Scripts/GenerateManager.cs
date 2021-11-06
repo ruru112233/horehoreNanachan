@@ -116,7 +116,7 @@ public class GenerateManager : MonoBehaviour
 
         
 
-        if (randomCount % 5 == 0)
+        if (randomCount % 6 == 0)
         {
             Clear();
             block1MaxNo = 10;
@@ -165,7 +165,7 @@ public class GenerateManager : MonoBehaviour
             Debug.Log(MasterData.playerMode);
 
             // ？ブロック出現
-            if (randomCount % 9 == 0)
+            if (randomCount % 10 == 0)
             {
                 Clear();
                 block1MaxNo = 9;

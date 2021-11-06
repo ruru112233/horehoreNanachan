@@ -21,7 +21,6 @@ public class StealItem : MonoBehaviour
 
     public void ItemUse(string tag)
     {
-
         if (tag == "Player")
         {
             if (stockItemPanel2.ItemName != "")
@@ -35,6 +34,14 @@ public class StealItem : MonoBehaviour
                 // 画像のセット
                 sprite1.sprite = sprite2.sprite;
                 sprite2.sprite = null;
+
+                // stealFlagをtrue
+                stockItemPanel1.StealFlag = true;
+            }
+            else
+            {
+                stockItemPanel1.ItemName = "";
+                sprite1.sprite = null;
             }
         }
         else
@@ -49,8 +56,15 @@ public class StealItem : MonoBehaviour
                 // 画像のセット
                 sprite2.sprite = sprite1.sprite;
                 sprite1.sprite = null;
+
+                // stealFlagをtrue
+                stockItemPanel2.StealFlag = true;
+            }
+            else
+            {
+                stockItemPanel2.ItemName = "";
+                sprite2.sprite = null;
             }
         }
-
     }
 }

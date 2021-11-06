@@ -14,6 +14,7 @@ public class UseScript : MonoBehaviour
 
     public void ItemUseSelect(string type, string tag, string quantityCangeType)
     {
+        Debug.Log(type);
         switch (type)
         {
             case "SPEEDUP":
