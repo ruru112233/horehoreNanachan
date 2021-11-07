@@ -30,8 +30,13 @@ public class MasterKeyController : MonoBehaviour
     public KeyCode selectP2Key = KeyCode.None;
 
     // ÉLÅ[ÇÃêF
-    public Color defaultColor = Color.white;
-    public Color selectColor = Color.blue;
+    private Color defaultColor = Color.white;
+    private Color selectColor = Color.yellow;
+    private Color transparentColor = Color.clear;
+
+    public Color DefaultColor{ get { return defaultColor; } }
+    public Color SelectColor { get { return selectColor; } }
+    public Color TransparntColor { get { return transparentColor; } }
 
     public static MasterKeyController instance;
 

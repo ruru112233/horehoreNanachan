@@ -86,18 +86,18 @@ public class ResultPanel : MonoBehaviour
     {
         if (resultSelectMode == EnumsScript.Enums.ResultSelectMode.RETRY.ToString())
         {
-            retryButton.color = masterKeyController.selectColor;
+            retryButton.color = masterKeyController.SelectColor;
         }
         else if (resultSelectMode == EnumsScript.Enums.ResultSelectMode.TITLE.ToString())
         {
-            titleButton.color = masterKeyController.selectColor;
+            titleButton.color = masterKeyController.SelectColor;
         }
     }
 
     void DefoColor()
     {
-        retryButton.color = masterKeyController.defaultColor;
-        titleButton.color = masterKeyController.defaultColor;
+        retryButton.color = masterKeyController.DefaultColor;
+        titleButton.color = masterKeyController.DefaultColor;
     }
 
     void SceneSeni()

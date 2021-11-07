@@ -5,4 +5,5 @@ using UnityEngine;
 public static class MasterData
 {
     public static string playerMode = "";
+
 }
