@@ -363,7 +363,6 @@ public class Player : MonoBehaviour
         else
         {
             anime.SetBool("WarkFlag", false);
-            Debug.Log(anime);
         }
     }
 
