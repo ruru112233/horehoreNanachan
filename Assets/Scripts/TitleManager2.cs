@@ -10,12 +10,37 @@ public class TitleManager2 : MonoBehaviour
                          , p2Button = null
                          , optionButton = null;
 
+    public GameObject optionPanel = null;
+
     private string selectMode = "";
     private int selectNum = 0;
+
+    public int SelectNum
+    {
+        set { selectNum = value; }
+    }
+
+    private bool optionFlag = false;
+
+    public bool OptionFlag
+    {
+        get { return optionFlag; }
+        set { optionFlag = value; }
+    }
 
     MasterKeyController masterKeyController;
 
     [SerializeField] ButtonManager buttonManager;
+
+    public static TitleManager2 instance;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -23,42 +48,43 @@ public class TitleManager2 : MonoBehaviour
         masterKeyController = MasterKeyController.instance;
         selectMode = SelectMode();
         SetSelectMode();
+        optionPanel.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(masterKeyController.P1Controller().upKey))
+        if (!optionFlag)
         {
-            if (selectNum <= 0)
+            if (Input.GetKeyDown(masterKeyController.P1Controller().upKey))
             {
-                selectNum = 0;
-                SetSelectMode();
+                if (selectNum <= 0)
+                {
+                    selectNum = 0;
+                }
+                else
+                {
+                    selectNum--;
+                }
             }
-            else
+            else if (Input.GetKeyDown(masterKeyController.P1Controller().downKey))
             {
-                selectNum--;
-                SetSelectMode();
+                if (selectNum >= 2)
+                {
+                    selectNum = 2;
+                }
+                else
+                {
+                    selectNum++;
+                }
+            }
+            if (Input.GetKeyDown(masterKeyController.P1Controller().startKey))
+            {
+                SceneSeni();
             }
         }
-        else if (Input.GetKeyDown(masterKeyController.P1Controller().downKey))
-        {
-            if (selectNum >= 2)
-            {
-                selectNum = 2;
-                SetSelectMode();
-            }
-            else
-            {
-                selectNum++;
-                SetSelectMode();
-            }
-        }
-
-        if (Input.GetKeyDown(masterKeyController.P1Controller().startKey))
-        {
-            SceneSeni();
-        }
+        
+        SetSelectMode();
 
     }
 
@@ -86,6 +112,8 @@ public class TitleManager2 : MonoBehaviour
             mode = EnumsScript.Enums.SelectMode.OPTION.ToString();
         }
 
+        Debug.Log("mode>>" + mode);
+
         return mode;
     }
 
@@ -93,23 +121,23 @@ public class TitleManager2 : MonoBehaviour
     {
         if (selectMode == EnumsScript.Enums.SelectMode.P1BUTTON.ToString())
         {
-            p1Button.color = masterKeyController.selectColor;
+            p1Button.color = masterKeyController.SelectColor;
         }
         else if (selectMode == EnumsScript.Enums.SelectMode.P2BUTTON.ToString())
         {
-            p2Button.color = masterKeyController.selectColor;
+            p2Button.color = masterKeyController.SelectColor;
         }
         else if (selectMode == EnumsScript.Enums.SelectMode.OPTION.ToString())
         {
-            optionButton.color = masterKeyController.selectColor;
+            optionButton.color = masterKeyController.SelectColor;
         }
     }
 
     void DefoColor()
     {
-        p1Button.color = masterKeyController.defaultColor;
-        p2Button.color = masterKeyController.defaultColor;
-        optionButton.color = masterKeyController.defaultColor;
+        p1Button.color = masterKeyController.DefaultColor;
+        p2Button.color = masterKeyController.DefaultColor;
+        optionButton.color = masterKeyController.DefaultColor;
     }
 
     void SceneSeni()
@@ -124,7 +152,7 @@ public class TitleManager2 : MonoBehaviour
         }
         else if (selectMode == EnumsScript.Enums.SelectMode.OPTION.ToString())
         {
-            
+            buttonManager.OptionButton();
         }
     }
 }
