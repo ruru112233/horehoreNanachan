@@ -667,6 +667,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 446dbd5c6521de94c9be0d25dc296b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  optionManager: {fileID: 0}
 --- !u!4 &647945027
 Transform:
   m_ObjectHideFlags: 0
@@ -1959,7 +1960,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 146319349b66474478c1da514a8c4a1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 8800977787114155122}
   camera: 1
 --- !u!1 &1762788688 stripped
 GameObject:
@@ -3555,7 +3556,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &8800977786718535293
 BoxCollider2D:
   m_ObjectHideFlags: 0

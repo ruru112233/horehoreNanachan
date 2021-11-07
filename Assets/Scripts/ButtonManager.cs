@@ -50,7 +50,6 @@ public class ButtonManager : MonoBehaviour
 
     public void OptionButton()
     {
-        Debug.Log("66666666666666");
         TitleManager2.instance.SelectNum = 0;
         TitleManager2.instance.optionPanel.SetActive(true);
         TitleManager2.instance.OptionFlag = true;
@@ -59,7 +58,6 @@ public class ButtonManager : MonoBehaviour
 
     public void OptionOff()
     {
-        Debug.Log("333333333333333");
         TitleManager2.instance.optionPanel.SetActive(false);
         TitleManager2.instance.SelectNum = 0;
         TitleManager2.instance.OptionFlag = false;

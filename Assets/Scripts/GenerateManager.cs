@@ -31,6 +31,23 @@ public class GenerateManager : MonoBehaviour
 
     int[][] blockImage =
         {
+            new int [] { 0, 1, 1, 1, 1, 1, 1, 1, 1 , 0},
+            new int [] { 0, 1, 1, 1, 1, 1, 1, 1, 1 , 0},
+            new int [] { 0, 1, 1, 1, 1, 1, 1, 1, 1 , 0},
+            new int [] { 0, 4, 4, 4, 4, 4, 4, 4, 4 , 0},
+            new int [] { 0, -1, -1, -1, -1, -1, -1, -1, -1, 0},
+            new int [] { 0, -1, -1, -1, -1, -1, -1, -1, -1, 0},
+            new int [] { 0, -1, -1, -1, -1, -1, -1, -1, -1, 0},
+            new int [] { 0, -1, -1, -1, -1, -1, -1, -1, -1, 0},
+            new int [] { 0, -1, -1, -1, -1, -1, -1, -1, -1, 0},
+            new int [] { 0, -1, -1, -1, -1, -1, -1, -1, -1, 0},
+            new int [] { 0, -1, -1, -1, -1, -1, -1, -1, -1, 0},
+            new int [] { 0, -1, -1, -1, -1, -1, -1, -1, -1, 0},
+            new int [] { 0, -1, -1, -1, -1, -1, -1, -1, -1, 0}
+        };
+
+    int[][] blockImage2 =
+        {
             new int [] { 0, 1, 1, 1, 1, 1, 1, 1, 1 , 0, -1, -1, -1, -1, -1, 0, 1, 1, 1, 1, 1, 1, 1, 1 , 0 },
             new int [] { 0, 1, 1, 1, 1, 1, 1, 1, 1 , 0, -1, -1, -1, -1, -1, 0, 1, 1, 1, 1, 1, 1, 1, 1 , 0 },
             new int [] { 0, 1, 1, 1, 1, 1, 1, 1, 1 , 0, -1, -1, -1, -1, -1, 0, 1, 1, 1, 1, 1, 1, 1, 1 , 0 },
@@ -49,8 +66,14 @@ public class GenerateManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-     
-        BlockGenerate();
+        if (MasterData.playerMode == "P1PLAY")
+        {
+            BlockGenerate();
+        }
+        else if (MasterData.playerMode == "P2PLAY")
+        {
+            BlockGenerate2();
+        }
 
         InvokeRepeating("RandomPos", 0.0f, 0.5f);
     }
@@ -77,7 +100,7 @@ public class GenerateManager : MonoBehaviour
                 {
                     InstanceView(BlockPrefab0, groundBlock.transform, 4.0f, j, i);
                 }
-                else if(blockImage[i][j] == 1)
+                else if (blockImage[i][j] == 1)
                 {
                     InstanceView(BlockPrefab1, groundBlock.transform, 4.0f, j, i);
                 }
@@ -89,7 +112,38 @@ public class GenerateManager : MonoBehaviour
                 {
                     InstanceView(BlockPrefab3, itemBlock.transform, 4.0f, j, i);
                 }
-                else if(blockImage[i][j] == 4)
+                else if (blockImage[i][j] == 4)
+                {
+                    InstanceView(BlockPrefab4, groundBlock.transform, 4.0f, j, i);
+                }
+            }
+
+        }
+    }
+
+    void BlockGenerate2()
+    {
+        for (int i = 0; i < blockImage2.Length; i++)
+        {
+            for (int j = 0; j < blockImage2[i].Length; j++)
+            {
+                if (blockImage2[i][j] == 0)
+                {
+                    InstanceView(BlockPrefab0, groundBlock.transform, 4.0f, j, i);
+                }
+                else if(blockImage2[i][j] == 1)
+                {
+                    InstanceView(BlockPrefab1, groundBlock.transform, 4.0f, j, i);
+                }
+                else if (blockImage2[i][j] == 2)
+                {
+                    InstanceView(BlockPrefab2, itemBlock.transform, 4.0f, j, i);
+                }
+                else if (blockImage2[i][j] == 3)
+                {
+                    InstanceView(BlockPrefab3, itemBlock.transform, 4.0f, j, i);
+                }
+                else if(blockImage2[i][j] == 4)
                 {
                     InstanceView(BlockPrefab4, groundBlock.transform, 4.0f, j, i);
                 }
@@ -162,8 +216,6 @@ public class GenerateManager : MonoBehaviour
         
         if (MasterData.playerMode == "P2PLAY")
         {
-            Debug.Log(MasterData.playerMode);
-
             // ？ブロック出現
             if (randomCount % 10 == 0)
             {
@@ -197,12 +249,27 @@ public class GenerateManager : MonoBehaviour
         o = Random.Range(1, randomMaxNo);
         p = Random.Range(1, randomMaxNo);
 
-        int[][] blockImage2 =
+        if (MasterData.playerMode == "P1PLAY")
         {
-            new int [] { 0, a, b, c, d, e, f, g, h, 0, -1, -1, -1, -1, -1, 0, i, j, k, l, m, n, o, p, 0 }
-        };
+            int[][] blockImage3 =
+            {
+                new int [] { 0, a, b, c, d, e, f, g, h, 0}
+            };
+            BlockMove(blockImage3);
+        }
+        else if (MasterData.playerMode == "P2PLAY")
+        {
 
-        BlockMove(blockImage2);
+            int[][] blockImage4 =
+            {
+                new int [] { 0, a, b, c, d, e, f, g, h, 0, -1, -1, -1, -1, -1, 0, i, j, k, l, m, n, o, p, 0 }
+            };
+            BlockMove(blockImage4);
+
+        }
+
+
+
     }
 
     void Clear()
@@ -222,7 +289,7 @@ public class GenerateManager : MonoBehaviour
             pos--;
             for (int j = 0; j < blockImage2[i].Length; j++)
             {
-                if (blockImage[i][j] == 0)
+                if (blockImage2[i][j] == 0)
                 {
                     InstanceView(BlockPrefab0, groundBlock.transform, -pos, j, i);
                 }
@@ -272,6 +339,5 @@ public class GenerateManager : MonoBehaviour
 
     }
 
-    
 
 }

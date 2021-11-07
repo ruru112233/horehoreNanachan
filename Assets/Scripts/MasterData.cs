@@ -6,4 +6,6 @@ public static class MasterData
 {
     public static string playerMode = "";
 
+    public static bool miniMapFlag = false;
+
 }

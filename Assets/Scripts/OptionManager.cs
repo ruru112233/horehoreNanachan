@@ -13,6 +13,10 @@ public class OptionManager : MonoBehaviour
                          , miniMapBackImage = null
                          , optionCloseButton = null;
 
+    [SerializeField] GameObject checkMark = null;
+
+    private bool miniMapCheckFlag = false;
+
     private int optionSelectNum = 0; // 0:BGMの音量調整、1:SEの音量調整、2:ミニマップのチェックボックス
 
     public int OptionSelectNum
@@ -50,6 +54,7 @@ public class OptionManager : MonoBehaviour
     {
         SetBgmAndSe();
         OptionSelectChange();
+        CheckMarkOnOff();
     }
 
     void SetBgmAndSe()
@@ -115,6 +120,11 @@ public class OptionManager : MonoBehaviour
             case 2:
                 ColorCrear();
                 miniMapBackImage.color = masterController.SelectColor;
+                if (Input.GetKeyDown(masterController.startP1Key))
+                {
+                    miniMapCheckFlag = !miniMapCheckFlag;
+                    MasterData.miniMapFlag = this.miniMapCheckFlag;
+                }
                 break;
             case 3:
                 ColorCrear();
@@ -179,7 +189,19 @@ public class OptionManager : MonoBehaviour
 
         }
 
-        SetBgmAndSe();
+        //SetBgmAndSe();
+    }
+
+    void CheckMarkOnOff()
+    {
+        if (miniMapCheckFlag)
+        {
+            checkMark.SetActive(true);
+        }
+        else
+        {
+            checkMark.SetActive(false);
+        }
     }
 
 

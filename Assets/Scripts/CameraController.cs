@@ -18,7 +18,21 @@ public class CameraController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (MasterData.miniMapFlag)
+        {
+            if (CAMERAPATTEN.MINIMAP1 == camera || CAMERAPATTEN.MINIMAP2 == camera)
+            {
+                this.gameObject.SetActive(true);
+            }
+        }
+        else
+        {
+            if (CAMERAPATTEN.MINIMAP1 == camera || CAMERAPATTEN.MINIMAP2 == camera)
+            {
+                this.gameObject.SetActive(false);
+            }
+        }
+
     }
 
     // Update is called once per frame
