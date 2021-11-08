@@ -53,11 +53,11 @@ public class CameraController : MonoBehaviour
             }
             else if(CAMERAPATTEN.MINIMAP1 == camera)
             {
-                transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 50, -10);
+                transform.position = new Vector3(player.transform.position.x - 44, player.transform.position.y + 50, -10);
             }
             else if (CAMERAPATTEN.MINIMAP2 == camera)
             {
-                transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 50, -10);
+                transform.position = new Vector3(player.transform.position.x + 44, player.transform.position.y + 50, -10);
             }
         }
 
