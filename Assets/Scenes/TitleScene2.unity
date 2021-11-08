@@ -403,11 +403,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 75646753}
   m_CullTransparentMesh: 1
---- !u!82 &178124900 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 7353782188464085198, guid: 3d6356e579203b24692cdf4a8f5868d9, type: 3}
-  m_PrefabInstance: {fileID: 1489254118}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &257159462
 GameObject:
   m_ObjectHideFlags: 0
@@ -1967,22 +1962,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 642219359848572684, guid: 3d6356e579203b24692cdf4a8f5868d9, type: 3}
-      propertyPath: Loop
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 987703043632910997, guid: 3d6356e579203b24692cdf4a8f5868d9, type: 3}
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
-    - target: {fileID: 987703043632911002, guid: 3d6356e579203b24692cdf4a8f5868d9, type: 3}
-      propertyPath: bgm.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 987703043632911002, guid: 3d6356e579203b24692cdf4a8f5868d9, type: 3}
-      propertyPath: bgm.Array.data[1]
-      value: 
-      objectReference: {fileID: 178124900}
     - target: {fileID: 987703043632911003, guid: 3d6356e579203b24692cdf4a8f5868d9, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -2025,10 +2008,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 987703043632911003, guid: 3d6356e579203b24692cdf4a8f5868d9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7353782188464085198, guid: 3d6356e579203b24692cdf4a8f5868d9, type: 3}
-      propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

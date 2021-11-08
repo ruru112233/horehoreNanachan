@@ -37,7 +37,6 @@ public class OptionManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        AudioManager.instance.PlayBGM(0);
         SetVolume();
     }
 

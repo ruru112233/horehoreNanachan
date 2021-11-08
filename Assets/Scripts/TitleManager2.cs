@@ -49,6 +49,8 @@ public class TitleManager2 : MonoBehaviour
         selectMode = SelectMode();
         SetSelectMode();
         optionPanel.SetActive(false);
+
+        AudioManager.instance.PlayBGM(2);
     }
 
     // Update is called once per frame

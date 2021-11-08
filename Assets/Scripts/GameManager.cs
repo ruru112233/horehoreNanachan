@@ -146,7 +146,16 @@ public class GameManager : MonoBehaviour
 
         player = GameObject.FindGameObjectWithTag("Player");
 
-        AudioManager.instance.PlayBGM(0);
+        if (MasterData.playerMode == EnumsScript.Enums.PlayerMode.P1PLAY.ToString())
+        {
+            AudioManager.instance.PlayBGM(3);
+        }
+        else
+        {
+            AudioManager.instance.PlayBGM(4);
+        }
+
+        
 
     }
 
