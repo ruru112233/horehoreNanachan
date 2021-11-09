@@ -191,7 +191,7 @@ public class GetItem : CommonBlock
                     if (GameManager.instance.ora1 != null)
                         GameManager.instance.ora1.SetActive(true);
 
-                    AudioManager.instance.PlayBGM(1);
+                    //AudioManager.instance.PlayBGM(1);
                 }
                 else
                 {
@@ -201,7 +201,7 @@ public class GetItem : CommonBlock
                     if (GameManager.instance.ora2 != null)
                         GameManager.instance.ora2.SetActive(true);
 
-                    AudioManager.instance.PlayBGM(1);
+                    //AudioManager.instance.PlayBGM(1);
                 }
                 
             }
