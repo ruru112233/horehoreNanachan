@@ -121,6 +121,7 @@ public class OptionManager : MonoBehaviour
                 miniMapBackImage.color = masterController.SelectColor;
                 if (Input.GetKeyDown(masterController.startP1Key))
                 {
+                    AudioManager.instance.PlaySE(3);
                     miniMapCheckFlag = !miniMapCheckFlag;
                     MasterData.miniMapFlag = this.miniMapCheckFlag;
                 }
@@ -145,13 +146,19 @@ public class OptionManager : MonoBehaviour
             {
                 if (bgmVolumeInit > 0)
                 {
+                    AudioManager.instance.PlaySE(3);
                     bgmVolumeInit--;
+                }
+                else
+                {
+                    bgmVolumeInit = 0;
                 }
             }
             else if (Input.GetKeyDown(masterController.rightP1Key))
             {
                 if (bgmVolumeInit < 5)
                 {
+                    AudioManager.instance.PlaySE(3);
                     bgmVolumeInit++;
                 }
                 else
@@ -167,6 +174,7 @@ public class OptionManager : MonoBehaviour
             {
                 if (seVoluumeInt > 0)
                 {
+                    AudioManager.instance.PlaySE(3);
                     seVoluumeInt--;
                 }
                 else
@@ -178,6 +186,7 @@ public class OptionManager : MonoBehaviour
             {
                 if (seVoluumeInt < 5)
                 {
+                    AudioManager.instance.PlaySE(3);
                     seVoluumeInt++;
                 }
                 else
