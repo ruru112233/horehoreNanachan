@@ -24,13 +24,20 @@ public class ButtonManager : MonoBehaviour
     public void ReTryButton()
     {
         AudioManager.instance.PlaySE(3);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+        GameManager.instance.fade.FadeIn(1f, () =>
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        });
     }
 
     public void TitleButton()
     {
         AudioManager.instance.PlaySE(3);
-        SceneManager.LoadScene("TitleScene2");
+        GameManager.instance.fade.FadeIn(1f, () =>
+        {
+            SceneManager.LoadScene("TitleScene2");
+        });
     }
 
     public void Ranking()
@@ -42,14 +49,22 @@ public class ButtonManager : MonoBehaviour
     {
         AudioManager.instance.PlaySE(3);
         MasterData.playerMode = EnumsScript.Enums.PlayerMode.P1PLAY.ToString();
-        SceneManager.LoadScene("MainScene");
+
+        TitleManager2.instance.fade.FadeIn(1f, () =>
+        {
+            SceneManager.LoadScene("MainScene");
+        });
     }
 
     public void P2PlayButton()
     {
         AudioManager.instance.PlaySE(3);
         MasterData.playerMode = EnumsScript.Enums.PlayerMode.P2PLAY.ToString();
-        SceneManager.LoadScene("Main2PScene");
+       
+        TitleManager2.instance.fade.FadeIn(1f, () =>
+        {
+            SceneManager.LoadScene("Main2PScene");
+        });
     }
 
     public void OptionButton()

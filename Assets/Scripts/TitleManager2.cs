@@ -15,6 +15,8 @@ public class TitleManager2 : MonoBehaviour
     private string selectMode = "";
     private int selectNum = 0;
 
+    public Fade fade;
+
     public int SelectNum
     {
         set { selectNum = value; }
@@ -51,6 +53,7 @@ public class TitleManager2 : MonoBehaviour
         optionPanel.SetActive(false);
 
         AudioManager.instance.PlayBGM(2);
+
     }
 
     // Update is called once per frame

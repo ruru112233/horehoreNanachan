@@ -36,6 +36,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject resultPanel;
 
+    public Fade fade;
+
     int setumeiNo = 1;
 
     //private float tsuritenjouSpeed = 0.3f;
@@ -143,6 +145,10 @@ public class GameManager : MonoBehaviour
         if (ora2) ora2.SetActive(false);
 
         if (resultPanel) resultPanel.SetActive(false);
+
+        fade = GameObject.FindWithTag("Fade").GetComponent<Fade>() ;
+
+        if (fade) fade.FadeOut(1.0f);
 
         player = GameObject.FindGameObjectWithTag("Player");
 
