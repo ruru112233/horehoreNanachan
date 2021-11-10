@@ -213,8 +213,15 @@ public class GameManager : MonoBehaviour
             if (MutekiTime1 >= 7.0f)
             {
                 if (ora1 != null) ora1.SetActive(false);
-                
-                //AudioManager.instance.PlayBGM(0);
+
+                if (MasterData.playerMode == EnumsScript.Enums.PlayerMode.P1PLAY.ToString())
+                {
+                    AudioManager.instance.PlayBGM(3);
+                }
+                else if (MasterData.playerMode == EnumsScript.Enums.PlayerMode.P2PLAY.ToString())
+                {
+                    AudioManager.instance.PlayBGM(4);
+                }
                 MutekiFlag1 = false;
                 MutekiTime1 = 0;
             }
@@ -230,7 +237,7 @@ public class GameManager : MonoBehaviour
             {
                 if (ora2 != null) ora2.SetActive(false);
 
-                //AudioManager.instance.PlayBGM(0);
+                AudioManager.instance.PlayBGM(4);
                 MutekiFlag2 = false;
                 MutekiTime2 = 0;
             }

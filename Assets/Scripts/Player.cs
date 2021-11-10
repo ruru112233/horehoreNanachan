@@ -347,7 +347,9 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKey(rightKey))
         {
-            CharDirection();
+            float x = 1.0f;
+
+            CharDirection(x);
 
             transform.position += new Vector3(moveX * Time.deltaTime, 0, 0);
 
@@ -355,21 +357,26 @@ public class Player : MonoBehaviour
         }
         else if (Input.GetKey(leftKey))
         {
-            CharDirection();
+            float x = -1.0f;
+
+            CharDirection(x);
 
             transform.position -= new Vector3(moveX * Time.deltaTime, 0, 0);
             anime.SetBool("WarkFlag", true);
         }
         else
         {
+            float x = 0f;
+
+            CharDirection(x);
+
             anime.SetBool("WarkFlag", false);
         }
     }
 
     // キャラの向きを変える
-    void CharDirection()
+    void CharDirection(float x)
     {
-        float x = Input.GetAxisRaw("Horizontal");
         Vector3 scale = transform.localScale;
         if (x < 0)
         {
