@@ -23,7 +23,7 @@ public class tsuritenjou : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!GameManager.instance.GameOverFlag)
+        if (!GameManager.instance.GameOverFlag && GameManager.instance.StartFlag)
         {
             speedTime += Time.deltaTime;
 

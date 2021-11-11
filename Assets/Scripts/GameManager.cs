@@ -38,6 +38,9 @@ public class GameManager : MonoBehaviour
 
     public Fade fade;
 
+    [SerializeField] Text countDownText;
+    float countDown = 3;
+
     int setumeiNo = 1;
 
     //private float tsuritenjouSpeed = 0.3f;
@@ -54,6 +57,8 @@ public class GameManager : MonoBehaviour
                 , mutekiTime2 = 0;
 
     GameObject player;
+
+    private bool startFlag = false;
 
     public bool p1ChangeFlag = false
               , p2ChangeFlag = false;
@@ -115,6 +120,12 @@ public class GameManager : MonoBehaviour
         set { gameOverFlag = value; }
     }
 
+    public bool StartFlag
+    {
+        get { return startFlag; }
+        set { startFlag = value; }
+    }
+
     public static GameManager instance;
 
     private void Awake()
@@ -160,8 +171,8 @@ public class GameManager : MonoBehaviour
         {
             AudioManager.instance.PlayBGM(4);
         }
-
-        
+        countDown = 3;
+        StartFlag = false;
 
     }
 
@@ -281,6 +292,8 @@ public class GameManager : MonoBehaviour
 
         PanelSelect(setumeiNo);
 
+        CountDownTextView();
+
     }
 
     void PanelSelect(int panelNo)
@@ -333,5 +346,23 @@ public class GameManager : MonoBehaviour
         speedDoun.SetActive(false);
         star.SetActive(false);
         ice.SetActive(false);
+    }
+
+   void CountDownTextView()
+    {
+        countDown -= Time.deltaTime;
+
+        float ans = Mathf.Ceil(countDown);
+
+        if (countDown < -0.5f)
+        {
+            countDownText.gameObject.SetActive(false);
+        }
+        else if (countDown < 0.0f)
+        {
+            StartFlag = true;
+        }
+
+        countDownText.text = ans.ToString();
     }
 }
