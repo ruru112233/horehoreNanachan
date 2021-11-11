@@ -34,9 +34,15 @@ public class MasterKeyController : MonoBehaviour
     private Color selectColor = Color.yellow;
     private Color transparentColor = Color.clear;
 
+    private Color menuNoneColor = Color.black;
+    private Color menuKetteiColor = Color.red;
+
     public Color DefaultColor{ get { return defaultColor; } }
     public Color SelectColor { get { return selectColor; } }
     public Color TransparntColor { get { return transparentColor; } }
+
+    public Color MenuNoneColor { get { return menuNoneColor; } }
+    public Color MenuKetteiColor { get { return menuKetteiColor; } }
 
     public static MasterKeyController instance;
 

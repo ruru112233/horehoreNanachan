@@ -13,6 +13,8 @@ public class OptionManager : MonoBehaviour
                          , miniMapBackImage = null
                          , optionCloseButton = null;
 
+    [SerializeField] Text bgmText, seText, miniMapText;
+
     [SerializeField] GameObject checkMark = null;
 
     private bool miniMapCheckFlag = false;
@@ -31,12 +33,13 @@ public class OptionManager : MonoBehaviour
     float setBgmVol = 0.5f
         , setSeVol = 0.5f;
 
-    [SerializeField] MasterKeyController masterController;
+    MasterKeyController masterController;
     [SerializeField] ButtonManager buttonManager;
 
     // Start is called before the first frame update
     void Start()
     {
+        masterController = MasterKeyController.instance;
         SetVolume();
     }
 
@@ -73,6 +76,7 @@ public class OptionManager : MonoBehaviour
         setSeVol = seVoluumeInt / 5.0f;
         SeSliderChenge(setSeVol);
 
+        
         if (TitleManager2.instance.OptionFlag)
         {
             if (Input.GetKeyDown(masterController.upP1Key))
@@ -110,15 +114,18 @@ public class OptionManager : MonoBehaviour
         {
             case 0:
                 ColorCrear();
-                bgmBackImage.color = masterController.SelectColor;
+                //bgmBackImage.color = masterController.SelectColor;
+                bgmText.color = masterController.MenuKetteiColor;
                 break;
             case 1:
                 ColorCrear();
-                seBackImage.color = masterController.SelectColor;
+                //seBackImage.color = masterController.SelectColor;
+                seText.color = masterController.MenuKetteiColor;
                 break;
             case 2:
                 ColorCrear();
-                miniMapBackImage.color = masterController.SelectColor;
+                //miniMapBackImage.color = masterController.SelectColor;
+                miniMapText.color = masterController.MenuKetteiColor;
                 if (Input.GetKeyDown(masterController.startP1Key))
                 {
                     AudioManager.instance.PlaySE(3);
@@ -225,9 +232,12 @@ public class OptionManager : MonoBehaviour
 
     void ColorCrear()
     {
-        bgmBackImage.color = masterController.TransparntColor;
-        seBackImage.color = masterController.TransparntColor;
-        miniMapBackImage.color = masterController.TransparntColor;
+        bgmText.color = masterController.MenuNoneColor;
+        seText.color = masterController.MenuNoneColor;
+        miniMapText.color = masterController.MenuNoneColor;
+        //bgmBackImage.color = masterController.TransparntColor;
+        //seBackImage.color = masterController.TransparntColor;
+        //miniMapBackImage.color = masterController.TransparntColor;
         optionCloseButton.color = masterController.DefaultColor;
     }
 
