@@ -154,7 +154,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1802573182}
-  - {fileID: 1634586654}
   m_Father: {fileID: 1912784508}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4981,6 +4980,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1351704512}
+  - {fileID: 1634586654}
   m_Father: {fileID: 1912784508}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5176,8 +5176,10 @@ MonoBehaviour:
   seBackImage: {fileID: 257159464}
   miniMapBackImage: {fileID: 1367080144}
   optionCloseButton: {fileID: 16752312}
+  bgmText: {fileID: 1068291075}
+  seText: {fileID: 551314694}
+  miniMapText: {fileID: 1351704513}
   checkMark: {fileID: 1757211166}
-  masterController: {fileID: 1835704737}
   buttonManager: {fileID: 1518655791}
 --- !u!4 &1496297403
 Transform:
@@ -5267,12 +5269,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1757211167}
-  m_Father: {fileID: 16752310}
+  m_Father: {fileID: 1367080143}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 100, y: 82}
+  m_AnchoredPosition: {x: 105.89862, y: -0.1000061}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1634586655
@@ -5288,7 +5290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9056604, g: 0.885179, b: 0.32894266, a: 1}
+  m_Color: {r: 1, g: 0.9857207, b: 0.5801887, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5706,17 +5708,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1835704737 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6928503031720413604, guid: afcbce37606d2bc499d0b7640ebcdbfc, type: 3}
-  m_PrefabInstance: {fileID: 6928503031935456466}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbe51c33da74dba4684c78fec8fd2087, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1892461763
 GameObject:
   m_ObjectHideFlags: 0
@@ -5994,7 +5985,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.7249701, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.7254902, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6382,6 +6373,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2062824794}
   m_CullTransparentMesh: 1
+--- !u!114 &5987694311631008460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5987694311631008463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbe51c33da74dba4684c78fec8fd2087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upP1Key: 273
+  downP1Key: 274
+  rightP1Key: 275
+  leftP1Key: 276
+  digP1Key: 118
+  bomP1Key: 120
+  itemUseP1Key: 99
+  startP1Key: 13
+  selectP1Key: 27
+  upP2Key: 374
+  downP2Key: 376
+  rightP2Key: 375
+  leftP2Key: 377
+  digP2Key: 384
+  bomP2Key: 383
+  itemUseP2Key: 385
+  startP2Key: 0
+  selectP2Key: 0
+--- !u!4 &5987694311631008461
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5987694311631008463}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 271.7741, y: 447.14627, z: -87.72073}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5987694311631008463
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5987694311631008461}
+  - component: {fileID: 5987694311631008460}
+  m_Layer: 0
+  m_Name: DebugMasterController
+  m_TagString: MasterController
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!1001 &6928503031935456466
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6436,6 +6488,10 @@ PrefabInstance:
     - target: {fileID: 6928503031720413607, guid: afcbce37606d2bc499d0b7640ebcdbfc, type: 3}
       propertyPath: m_Name
       value: MasterController
+      objectReference: {fileID: 0}
+    - target: {fileID: 6928503031720413607, guid: afcbce37606d2bc499d0b7640ebcdbfc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afcbce37606d2bc499d0b7640ebcdbfc, type: 3}
