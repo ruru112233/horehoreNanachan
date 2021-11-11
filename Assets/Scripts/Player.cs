@@ -73,12 +73,15 @@ public class Player : MonoBehaviour
         SetKey();
 
         anime = gameObject.transform.GetChild(0).GetComponent<Animator>();
-        
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+
         if (this.gameObject.name == "Player")
         {
             drillCount = GameManager.instance.itemCountManager.DrillCount1;
@@ -90,25 +93,29 @@ public class Player : MonoBehaviour
             bomCount = GameManager.instance.itemCountManager.BomCount2;
         }
 
-        if (!GameManager.instance.player1Stop && this.gameObject.name == "Player")
+        if (GameManager.instance.StartFlag)
         {
-            PlayerDig();
-            ItemUse();
-        }
-        else if (GameManager.instance.player1Stop && this.gameObject.name == "Player")
-        {
-            OffDrill();
+            if (!GameManager.instance.player1Stop && this.gameObject.name == "Player")
+            {
+                PlayerDig();
+                ItemUse();
+            }
+            else if (GameManager.instance.player1Stop && this.gameObject.name == "Player")
+            {
+                OffDrill();
+            }
+
+            if (!GameManager.instance.player2Stop && this.gameObject.name == "Player2")
+            {
+                PlayerDig();
+                ItemUse();
+            }
+            else if (GameManager.instance.player2Stop && this.gameObject.name == "Player2")
+            {
+                OffDrill();
+            }
         }
 
-        if (!GameManager.instance.player2Stop && this.gameObject.name == "Player2")
-        {
-            PlayerDig();
-            ItemUse();
-        }
-        else if(GameManager.instance.player2Stop && this.gameObject.name == "Player2")
-        {
-            OffDrill();
-        }
     }
 
     void SetKey()
@@ -329,18 +336,20 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // Player1の移動処理
-        if (!GameManager.instance.player1Stop && this.gameObject.name == "Player")
+        if (GameManager.instance.StartFlag)
         {
-            PlayerMove();
-        }
+            // Player1の移動処理
+            if (!GameManager.instance.player1Stop && this.gameObject.name == "Player")
+            {
+                PlayerMove();
+            }
 
-        // Player2の移動処理
-        if (!GameManager.instance.player2Stop && this.gameObject.name == "Player2")
-        {
-            PlayerMove();
+            // Player2の移動処理
+            if (!GameManager.instance.player2Stop && this.gameObject.name == "Player2")
+            {
+                PlayerMove();
+            }
         }
-
     }
 
     void PlayerMove()
