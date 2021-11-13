@@ -51,7 +51,11 @@ public class CameraController : MonoBehaviour
             {
                 transform.position = new Vector3(player.transform.position.x, player.transform.position.y, -10);
             }
-            else if(CAMERAPATTEN.MINIMAP1 == camera)
+            else if(MasterData.playerMode == EnumsScript.Enums.PlayerMode.P1PLAY.ToString() && CAMERAPATTEN.MINIMAP1 == camera)
+            {
+                transform.position = new Vector3(player.transform.position.x , player.transform.position.y + 50, -10);
+            }
+            else if (CAMERAPATTEN.MINIMAP1 == camera)
             {
                 transform.position = new Vector3(player.transform.position.x - 44, player.transform.position.y + 50, -10);
             }
