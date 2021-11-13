@@ -209,6 +209,7 @@ public class OptionManager : MonoBehaviour
 
     void CheckMarkOnOff()
     {
+        miniMapCheckFlag = MasterData.miniMapFlag;
         if (miniMapCheckFlag)
         {
             checkMark.SetActive(true);
