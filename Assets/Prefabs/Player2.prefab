@@ -147,14 +147,6 @@ MonoBehaviour:
   leftDrill: {fileID: 1213391154844020458}
   startPos: {fileID: 1213391155089221356}
   endPos: {fileID: 1213391154526726026}
-  downKey: 115
-  rightKey: 100
-  leftKey: 97
-  digKey: 32
-  bomKey: 106
-  itemUseKey: 107
-  startKey: 0
-  selectKey: 0
 --- !u!50 &1213391154576593212
 Rigidbody2D:
   serializedVersion: 4
@@ -163,7 +155,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1213391154576593209}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0

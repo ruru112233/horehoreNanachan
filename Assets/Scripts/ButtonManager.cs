@@ -56,6 +56,13 @@ public class ButtonManager : MonoBehaviour
         });
     }
 
+    public void OnlineButton()
+    {
+        AudioManager.instance.PlaySE(3);
+        MasterData.playerMode = EnumsScript.Enums.PlayerMode.P2PLAY.ToString();
+        TitleManager2.instance.fade.FadeIn(1f, () => SceneManager.LoadScene("OnlineScene"));
+    }
+
     public void P2PlayButton()
     {
         AudioManager.instance.PlaySE(3);
